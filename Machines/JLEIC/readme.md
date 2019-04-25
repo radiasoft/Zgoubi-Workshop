@@ -1,1 +1,1 @@
-LJEIC is the Jefferson Lab design for an [electron-ion collider](https://en.wikipedia.org/wiki/Electron%E2%80%93ion_collider)
+JLEIC is the [Jefferson Lab](https://en.wikipedia.org/wiki/Thomas_Jefferson_National_Accelerator_Facility) design for an [electron-ion collider](https://en.wikipedia.org/wiki/Electron%E2%80%93ion_collider)
