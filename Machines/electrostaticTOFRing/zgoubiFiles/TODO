@@ -1,0 +1,9 @@
+
+
+Automatic positioning (KPOS=3) in 
+/home/meot/zgoubi/struct/folks/baril/bnl_Sept2012/coeffsTransport.res_BNL_Feb2011
+no longer works the same way, today.
+That causes different results.
+
+TB debugged
+
