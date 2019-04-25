@@ -1,4 +1,1 @@
-The Los Alamos Proton Storage Ring is described as being in the design process when this paper by A. Dragt was written in 1982
-
-https://cds.cern.ch/record/890994/files/p205.pdf
-
+The Los Alamos Proton Storage Ring was used as a driver for creating pulsed neutrons at the [Los Alamos Lansce facility](https://lansce.lanl.gov/). The lattice is described in [this 1982 paper by A. Dragt](https://cds.cern.ch/record/890994/files/p205.pdf).  The chromaticity is computed to many digits which makes this ring a good test example for a particle tracking code.
