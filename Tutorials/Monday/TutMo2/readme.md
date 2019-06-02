@@ -1,1 +1,1 @@
-Tutorial TutMo2 material, by D. Abell and K. Hock
+Tutorial TutMo2 material, by D.T. Abell and K. Hock
