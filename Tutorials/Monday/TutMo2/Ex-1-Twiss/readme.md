@@ -20,10 +20,10 @@ do you see besides those that define the PSR lattice?
 Have a look in the [Zgoubi Users' Guide]
 (https://github.com/radiasoft/Zgoubi-Workshop/blob/master/Zgoubi.pdf)
 for information about keywords
-`'OBJET'` (pp. 55 and 259),
-`'FAISTORE'` (pp. 169 and 234),
-`'MATRIX'` (pp. 175 and 253),
-`'and TWISS'` (pp. 182 and 298).
+`'OBJET'` (pp. 55 and 258),
+`'FAISTORE'` (pp. 169 and 233),
+`'MATRIX'` (pp. 175 and 252),
+`'and TWISS'` (pp. 182 and 297).
 
 In a terminal, navigate to this directory, then run Zgoubi on the input
 PSR-Twiss.dat. You do this with the command
