@@ -17,8 +17,7 @@ On your first reading, don't become lost in the details; just identify
 the overall structure. What do you see? What commands (_Zgoubi keywords_)
 do you see besides those that define the PSR lattice?
 
-Have a look in the [Zgoubi Users' Guide]
-(https://github.com/radiasoft/Zgoubi-Workshop/blob/master/Zgoubi.pdf)
+Have a look in the [Zgoubi Users' Guide](https://github.com/radiasoft/Zgoubi-Workshop/blob/master/Zgoubi.pdf)
 for information about keywords
 `'OBJET'` (pp. 55 and 258),
 `'FAISTORE'` (pp. 169 and 233),
@@ -34,3 +33,5 @@ After running Zgoubi, what new files do you see? What are the contents of
 those new files?
 
 The first file to look at is `zgoubi.res`.
+
+[Need to add a description of how to use the plotting scripts.]
