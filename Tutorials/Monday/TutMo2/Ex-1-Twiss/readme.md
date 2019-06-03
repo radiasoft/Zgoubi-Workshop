@@ -26,8 +26,10 @@ for information about keywords
 `'and TWISS'` (pp. 182 and 297).
 
 In a terminal, navigate to this directory, then run Zgoubi on the input
-PSR-Twiss.dat. You do this with the command
-```zgoubi -in PSR-Twiss.dat```
-Now what new files do you see? What are the contents of those files?
+`PSR-Twiss.dat`. You do this with the command
+```zgoubi -in PSR-Twiss.dat
+```
+After running Zgoubi, what new files do you see? What are the contents of
+those new files?
 
 The first file to look at is `zgoubi.res`.
