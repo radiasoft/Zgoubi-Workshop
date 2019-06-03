@@ -1,10 +1,10 @@
-Exercise 1 --- Twiss
-====================
+Exercise 1 — Twiss
+==================
 
 Files
 -----
-PSR-Twiss.dat
-plotTwiss.py
+* PSR-Twiss.dat
+* plotTwiss.py
 
 Instructions
 ------------
