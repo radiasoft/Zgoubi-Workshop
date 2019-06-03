@@ -23,7 +23,7 @@ for information about keywords
 `'OBJET'` (pp. 55 and 258),
 `'FAISTORE'` (pp. 169 and 233),
 `'MATRIX'` (pp. 175 and 252),
-`'and TWISS'` (pp. 182 and 297).
+and `'TWISS'` (pp. 182 and 297).
 
 In a terminal, navigate to this directory, then run Zgoubi on the input
 `PSR-Twiss.dat`. You do this with the command
