@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import os
 FL=os.getcwd()
 print FL
+
 S,beta_x,beta_y,phix,phiy=np.loadtxt('%s/%s'%(FL,'zgoubi.TWISS.out'),skiprows=51,usecols=(12,1,3,10,11),unpack=True)
 
 plt.figure(figsize=(5,2))
@@ -35,4 +36,3 @@ plt.savefig('beta.eps')
 plt.show()
 
 print 'btx(max)=%.2f, btx(min)=%.2f, \n bty(max)=%.2f, bty(min)=%.2f'%(np.max(beta_x), np.min(beta_x), np.max(beta_y), np.min(beta_y))
-
