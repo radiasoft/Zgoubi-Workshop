@@ -12,8 +12,8 @@ In this first exercise, we introduce Zgoubi with a simple example based
 on the Los Alamos Proton Storage Ring (PSR). In particular, we compute
 the linear lattice properties of that machine.
 
-Open the file PSR-Twiss.dat---this is the Zgoubi input file for this
-exercise---and spend some time familiarizing yourself with its contents.
+Open the file PSR-Twiss.dat — this is the Zgoubi input file for this
+exercise—and spend some time familiarizing yourself with its contents.
 On your first reading, don't become lost in the details; just identify
 the overall structure. What do you see?
 
