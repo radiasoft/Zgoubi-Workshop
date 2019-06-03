@@ -5,5 +5,5 @@ PSR-Twiss.res
 plotTwiss.py
 plotFai.py
 
-In this exercise ...
-
+In this exercise we compute the linear lattice properties of the Los Alamos
+Proton Storage Ring (PSR).
