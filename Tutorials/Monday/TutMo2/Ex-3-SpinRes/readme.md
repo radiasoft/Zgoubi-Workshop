@@ -1,6 +1,10 @@
-Exercise 3 ---Spin Resonance
+# Exercise 3 - Spin Resonance
+
+## Files
 
 PSR-Spin.py
 
-In this exercise ...
+## Instructions
+
+In this third exercise, ...
 
