@@ -92,13 +92,6 @@ for i in range(0,10):
 	else:
 		PSR_Lattice.add(DRIFT1)
 
-#Cavity voltage
-CavV=15.0e3
-#Synchronous phase
-Phi_S=np.pi/6
-#Define RF cavity
-RF_Cav=core.CAVITE(IOPT=2,L=90.224,h=1.00,V=CavV,sig_s=Phi_S)
-
 #Get the tunes to calculate where the G\gamma=0+\nu_y intrinsic resonance occurs
 PSR=core.Line('PSR')
 ob5 = core.OBJET5()
@@ -119,6 +112,11 @@ nu_y=2.0 + tunes[1]
 print 'The vertical betatron tune is %s'%nu_y
 
 '''Part 2-Calculating parameters for the simulation
+#Cavity voltage
+CavV=15.0e3
+#Synchronous phase
+Phi_S=np.pi/6
+
 #Calculate G\gamma where the resonance occurs
 G   =1.7928473505
 MASS=938.27203
@@ -161,6 +159,9 @@ print 'Resonance parameters\nEnergy_R=%.2f\nG_gamma_R=%.2f\nBRHO_0=%.2f\nBRHO_R=
 
 '''Part 3-Spin tracking 
 print 'Particles being tracked from G gamma=%.2f to %.2f'%(G_gamma_0,G_gamma_f)
+
+#Define RF cavity
+RF_Cav=core.CAVITE(IOPT=2,L=90.224,h=1.00,V=CavV,sig_s=Phi_S)
 
 SCALING2=core.FAKE_ELEM("""
 'SCALING'
