@@ -2,14 +2,15 @@
 
 ## Files
 
-* PSR-Twiss.dat
 * plotTwiss.py
+* PSR.ipynb
+* PSR-Twiss.dat
 
 ## Instructions
 
 In this first exercise, we introduce Zgoubi with a simple example based
-on the Los Alamos Proton Storage Ring (PSR). In particular, we compute
-the linear lattice properties of that machine.
+on the ten-cell Los Alamos Proton Storage Ring (PSR). In particular, we
+compute the linear lattice properties of that machine.
 
 Open the file `PSR-Twiss.dat` — this is the Zgoubi input file for this
 exercise — and spend some time familiarizing yourself with its contents.
@@ -29,9 +30,14 @@ In a terminal, navigate to this directory, then run Zgoubi on the input
 ```
 zgoubi -in PSR-Twiss.dat
 ```
-After running Zgoubi, what new files do you see? What are the contents of
-those new files?
+After running Zgoubi, verify that it exited normally. 
 
-The first file to look at is `zgoubi.res`.
+What new files do you see? What are the contents of those new files?
 
-[Need to add a description of how to use the plotting scripts.]
+There is a plotting script in plotTwiss.py. Have a look in that file,
+and, in particular, study line 7 to identify what information it
+extracts, and from where. You can run this plotting script either in
+a Python2 console or from the Jupyter notebook `PSR.ipynb`. What do
+the results tell you?
+
+[Need to suggest extensions for students to work on.]
