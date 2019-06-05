@@ -493,10 +493,7 @@ PROTON
 zgoubi.fai
 1
  
- 'MATRIX'                                                                                                   102
-1 11
-
- 'TWISS'                                                                                                    103
+ 'TWISS'                                                                                                    102
 2 1.0 1.0
  
- 'END'                                                                                                      104
+ 'END'                                                                                                      103
