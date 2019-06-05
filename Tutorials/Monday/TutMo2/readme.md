@@ -1,6 +1,6 @@
 # Tutorial TutMo2
 
-## Dan T. Abell and Kiel Hock
+## Instructors: Dan T. Abell and Kiel Hock
 
 This directory contains all Zgoubi input files and supporting material
 for tutorial TutMo2. The exercises in this tutorial all center around 
