@@ -1,0 +1,221 @@
+\documentclass[10pt]{article}
+
+\usepackage{multirow}
+\usepackage{rotating,graphicx}
+%\usepackage{wrapfig}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{lscape}
+\usepackage{times}
+\usepackage{color}  % For \textcolor and \color % Ex. : \textcolor{red}{Text colored with} ; {\color{red}Text colored with}
+\usepackage{soul}   % For \hl{ highlighted text} ; \sethlcolor{colorname}
+%\usepackage[table]{xcolor}
+\usepackage{xcolor,colortbl}
+\usepackage{capt-of}
+\usepackage{textcomp}  % allows \textonehalf,  \textonequarter, or else
+%\usepackage{mathcomp}  % make it math compatible
+
+\oddsidemargin =-0.6in
+\evensidemargin=-0.6in
+%\textwidth=7.6in   % owl
+ \textwidth=7.8in % laptop
+\textheight=10.2in
+% \topmargin=-.25in   % owl
+ \topmargin=-1.in    % laptop
+\footskip=-.0in
+
+\newcommand{\Bl}{\ensuremath{B_{{low}}}}
+\newcommand{\Bh}{\ensuremath{B_{{high}}}}
+\newcommand{\Il}{\ensuremath{I_{{low}}}}
+\newcommand{\Ih}{\ensuremath{I_{{high}}}}
+\newcommand{\Br}{\ensuremath{B\! \rho}}
+\newcommand{\CE}{concentration ellipse}
+\newcommand{\CES}{CE-$\rm \mathcal{S}$}
+\newcommand{\dEE}{\small \ensuremath{\frac{dE}{E}}}
+\newcommand{\eg}{\ensuremath{\it e.g.}}
+\newcommand{\Ha}{\ensuremath{\mathcal{H}}}
+\newcommand{\Sa}{\ensuremath{\mathcal{S}}}
+\newcommand{\vs}{\ensuremath{\it vs.}}
+\newcommand{\ie}{\ensuremath{\it i.e.}}
+\newcommand{\hbrk}{\hfill \break}
+\newcommand{\sr}{synchrotron radiation}
+\newcommand{\SRl}{SR loss}
+\newcommand{\x}{\ensuremath{x}} 
+\newcommand{\xp}{\ensuremath{{x'}}}
+\newcommand{\z}{\ensuremath{z} }
+\newcommand{\zp}{\ensuremath{{z'}}}
+\newcommand{\y}{\ensuremath{y} }
+\newcommand{\yp}{\ensuremath{{y'}}}
+\newcommand{\dl}{\ensuremath{{\delta l}}} 
+\newcommand{\dE}{\ensuremath{{\delta E}}}
+\newcommand{\X}{\ensuremath{X} }
+\newcommand{\Xp}{\ensuremath{{X'}}}
+\newcommand{\Z}{\ensuremath{Z} }
+\newcommand{\zg}{Zgoubi}
+\newcommand{\Zp}{\ensuremath{{Z'}}}
+\newcommand{\Y}{\ensuremath{Y} }
+\newcommand{\Yp}{\ensuremath{{Y'}}}
+\newcommand{\Len}{\ensuremath{l} }
+\newcommand{\Mom}{\ensuremath{E}}
+\newcommand{\Sx}{\ensuremath{\mathcal{S}_x}}
+\newcommand{\Sy}{\ensuremath{\mathcal{S}_y}}
+\newcommand{\Sz}{\ensuremath{\mathcal{S}_z}}
+
+\newcommand{\C}{\ensuremath{\mathcal{C}}}
+\newcommand{\D}{\ensuremath{\mathcal{D}}}
+\newcommand{\HH}{\ensuremath{\mathcal{H}}}
+\newcommand{\bHH}{\bar \HH}
+\newcommand{\com}{{center of mass}}
+\newcommand{\lab}{{laboratory frame}}
+\newcommand{\LL}{\ensuremath{\mathcal{L}}}
+\newcommand{\rms}{\ensuremath{rms}}
+\newcommand{\wrt}{{with respect to}}
+
+\newcommand{\bull}{\ensuremath{\bullet~}}
+\newcommand{\cf}{\ensuremath{\textsl{cf.}}}
+\newcommand{\bhel}{\ensuremath{\mathbf{^3He^{2+}}}}
+\newcommand{\hel}{\ensuremath{\mathrm{^3He^{2+}}}}
+\newcommand{\nib}{\noindent \ensuremath{\bullet~}}
+\newcommand{\snib}{\noindent {\small \ensuremath{\bullet~}}}
+\newcommand{\nid}{\noindent \ensuremath{\diamond~}}
+\newcommand{\snid}{\noindent {\small \ensuremath{\diamond~}}}
+\newcommand{\nin}{\noindent~}
+\newcommand{\no}{\ensuremath{\mathbf{\vec n_0}}}
+\newcommand{\MC}{Monte~Carlo}
+\newcommand{\p}{\ensuremath{\mathbf{p}}}
+\newcommand{\pp}{$\rm p\! \! \uparrow$}
+
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{yelloworange}{rgb}{1,.647,0}
+\newcommand{\black}{\color{black}}
+\newcommand{\red}{\color{red}}
+\newcommand{\green}{\color{green}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\yo}{\color{yelloworange}}
+
+\newcommand{\referenceA}{\rm  }
+\newcommand{\referenceB}{\rm }
+\newcommand{\referenceC}{\rm }
+
+\pagestyle{headings}
+\markboth{\small  \referenceA ~ ~   \referenceB ~ ~  \referenceC \hfill }
+         {\small  \referenceA ~ ~   \referenceB ~ ~  \referenceC \hfill }
+
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{minipage}{1.\linewidth}
+\bf
+  \flushright{F. M\'eot}
+\vspace{-2ex}
+  
+  \flushright{BNL C-AD}
+\vspace{-2ex}
+  
+  \flushright{Zgoubi 2019 Workshop, Boulder, CO}
+\vspace{-2ex}
+  
+\flushright{24-29 Aug. 2019} 
+\end{minipage}
+
+
+\vspace{5ex}
+
+\centerline{\LARGE \bf
+  Simulation of CBETA BNL-CORNELL ERL Using Field Maps
+}
+
+~
+
+\centerline{\LARGE \bf
+1. Periodic Orbits and Optical Functions 
+}
+
+\centerline{\LARGE \bf
+  Along the Permanent Magnet Return Loop
+}
+
+\vspace{5ex}
+\author{
+F.~M\'eot
+\\
+Collider-Accelerator Department, BNL, Upton, NY 11973 \\
+}
+
+
+The interest of using field maps is that it brings greatest accuracy in the modeling of the optical elements (of their magnetic field). Allied with stepwise ray-tracing techniques, it brings greatest accuracy on
+the resolution of the equation of particle motion through these fields. 
+
+We will lean on Ref.~\footnote{CBETA Design Report, J.~Barley et als., Jan~27, 2017.} 
+for the details concerning CBETA design and its permanent magnet return loop, 
+and on Refs.~\footnote{A Full Field-Map Modeling of Cornell-BNL CBETA 4-Pass Energy Recovery Linac, F.~M\'eot et als., ICAP18, Key West.}~\footnote{Beam dynamics validation of the Halbach Technology FFAG Cell for Cornell-BNL Energy Recovery Linac, F. Méot et als., NIM A, vol. 896, pp. 60-67, 2018.} concerning the present field map based optical methods. 
+In particular, the theoretical arc cell is displayed in [1]~Fig.~2.2.3, p.~24 or in [2]~Fig.~3; the geometry of the ERL and of its return loop are shown in [1]~Figs.~2.1.1, p.~18 and 2.1.2, p.~19 respectively. The OPERA model of the permanent magnet cell is shown in [2]~Figs.~6 and~11.
+
+There is no quadrupole knob over the FA-TA-ZA-ZB-TB-FB return loop, on the other hand there is corrector dipole windings
+(Fig.~11 in [2]) but we will ignore them here. 
+In these conditions the reference orbits and the optical functions (betatron functions and dispersion)
+along the loop are fully determined by their values at the start of the FA arc.
+This exercise deals with the determination of the latter.
+Tests will be performed by propagating the initial orbit and optical function values so determined, 
+all the way along the $\rm \approx 50$\,m loop.
+
+
+
+
+\section*{Working hypotheses:}
+
+\nib For this exercise we will work in the folder
+$$\rm [pathTo]/CBETA/FFAGLoop/FA $$
+and will essentially be dealing with the input data  file $\rm FA$-$\rm 042\_1stcell\_FITInitialBta.dat$. 
+The field maps of the permanent magnets can be found in the folder $\rm [pathTo]/CBETA/fieldmaps$.
+
+\smallskip
+
+\nib There are two subtleties in the handling of the periodic optical functions of the permanent magnet return loop.
+
+\nin - First, while the QF-BD doublet FA cell repeats itself 16 times over the upstream FA arc of the return loop (Fig.~2.1.2, p.~19, in [1]), the arc actually starts with a half BD magnet.
+This is for the purpose of optical matching at the connection between S1 and the FA arc. 
+
+Thus, the optical functions upstream of that half-BD, at the location of the downstream end of S1, are determined by the periodic functions of the FA cell.
+
+\nin - Next, an aspect proper to the use of field maps:  the S1-FA arc connection happens to be located within the extent of
+the half-BD field map, thus getting them from there requires a numerical method.
+
+We choose here to use a FIT procedure as a convenient and simple way to achieve that.
+
+
+
+\section*{ Numerical experiments: }
+
+
+\nin 1/ Find the 4 design energy orbits in the FA cell, namely: reproduce the plot of Fig.~5-left in [2]. 
+
+Plot the magnetic field along the 4 orbits.
+
+~
+
+\nin 2/ Find the periodic functions at the end of the FA cell, for the 4 design energies, using \texttt{MATRIX}.
+
+Plot the betatron functions and horizontal diserpsion accross the cell.
+
+~
+
+\nin 3/ Add the half-BD section that ensures the connection to S1,
+upstream of the FA cell. Using the optical functions at the downstream end of that sequence as
+the constraints, find the optical functions at the S1-FA connection.  \texttt{FIT[2]} can be used for that. 
+
+~
+
+\nin 4/ Check your results:
+
+- inject the initial orbit coordinates at the start of the FFAG loop (file FFAGLoop.dat),
+plot them, all 4 energies (in a similar manner to the 42\,MeV orbit in [2], Fig.~13-left)
+
+- inject the initial optical functions at the start of the FFAG loop, 
+for instance for the 42\,MeV case, and verify that they propagate correctly all the way. 
+
+ 
+
+\end{document}
