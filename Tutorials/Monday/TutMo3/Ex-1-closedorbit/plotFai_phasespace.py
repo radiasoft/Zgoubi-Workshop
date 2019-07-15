@@ -13,7 +13,7 @@ y, t, z, p = np.transpose(coords)
 
 y_mean = np.mean(y)
 t_mean = np.mean(t)
-print "mean x,x' ",y_mean, t_mean
+#print "mean x,x-prime ",y_mean, t_mean
 plt.plot(y,t, 'ko')
 plt.plot([y_mean], [t_mean],'ro')
 plt.xlabel('x [cm]')
