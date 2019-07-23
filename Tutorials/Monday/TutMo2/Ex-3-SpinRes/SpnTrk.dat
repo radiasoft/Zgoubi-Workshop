@@ -600,6 +600,6 @@ BRHO_0 BRHO_f
 CavV 5.235987755983e-01
  
  'REBELOTE'                                                                                                 106
-NTurns 0 99
+NTurns-1 0 99
  
  'END'                                                                                                      107
