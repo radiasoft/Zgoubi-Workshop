@@ -69,5 +69,6 @@ def main(argv):
             print "Please enter the three required fields."
             usage()
     else:
-        print "Please enter "
+        print "Please enter the three required fields"
+        usage()
 main(sys.argv[1:])
