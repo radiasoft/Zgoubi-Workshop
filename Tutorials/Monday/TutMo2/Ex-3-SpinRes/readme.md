@@ -17,9 +17,11 @@ where **Gγ=ν_s** is the spin tune, N is an integer, and P is the periodicity o
 You calculated the tunes in exercise 1, and determined the integer component in exercise 2. You will use these in calculating the location of the **0+ν_y** resonance.
 The Froissart-Stora formula is defined as:
 ```
-P_f/P_i=2exp(-(π|ε_k|)/(2α))
+P_f/P_i=2exp(-(π|ε_k|)/(2α))-1
 ```
 where **α=(GΔE)/(2πM_o)** is the crossing speed, **ε_k** is the resonance strength, and **P_i** and **P_f** are the asymptotic values of the polarization before and after the resonance crossing. The change in energy per turn, **ΔE** is based off the cavity voltage (CavV) you decide to use. Keep in mind that **ε_k** is related to the optics and the vertical betatron amplitude. If you choose a voltage too high, you might not see anything; choose a voltage too low and the effects may be too strong. Try a few thousand volts. 
+
+![alt text](PSR_SPNTRK.png "Protons crossing 0+ resonance.")
 
 Your intial and final values of **Bρ** will be determined based off the number of turns you track for (separated NTurns/2 from the resonance so the resonance is centered in the tracking). The conversion from **γ** to **Bρ** is straight forward:
 * γ_R =Gγ_R/G 
