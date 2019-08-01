@@ -25,8 +25,8 @@ where **α=(GΔE)/(2πM<sub>o</sub>)** is the crossing speed, **ε<sub>k</sub>**
 ![alt text](PSR_SPNTRK.png "Protons crossing 0+ resonance.")
 
 Your intial and final values of **Bρ** will be determined based off the number of turns you track for (separated NTurns/2 from the resonance so the resonance is centered in the tracking). The conversion from **γ** to **Bρ** is straight forward:
-* γ<sub>R</sub> =Gγ_R/G 
-* E<sub>R</sub> =γ_R*M_o
+* γ<sub>R</sub> =Gγ<sub>R</sub>/G 
+* E<sub>R</sub> =γ<sub>R</sub>*M<sub>o</sub>
 * Bρ<sub>R</sub>=uoc*(E<sub>R</sub>^2-M<sub>o</sub>^2)^{1/2}/Q
 with uoc=1.0/0.299792458
 
