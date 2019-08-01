@@ -6,11 +6,12 @@ import numpy as np
 def usage():
     print
     print
-    print "Usage:python BRHO_Calc.py tune_y RF_voltage(kV) N_turns"
+    print "Usage:python BRHO_Calc.py   tune_y   RF_voltage(kV)   N_turns"
     print 
-    print "tune_y is the vertical betatron tune."
-    print "RF_voltage must be given in kV. A phase=pi/6 is used."
-    print "N_turns is the number of turns to be tracked."
+    print "Input parameters:
+    print "tune_y     = vertical betatron tune."
+    print "RF_voltage = cavity voltage in kV. A phase=pi/6 is used."
+    print "N_turns    = number of turns to be tracked."
     print
     print "Calculates initial and final BRHO values based on RF cavity voltage and "
     print "number of turns for crossing the G gamma=0+nu_y resonance."
