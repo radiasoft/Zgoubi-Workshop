@@ -30,16 +30,17 @@ with uoc=1.0/0.299792458
 Using the above formula and the RF parameters, extrapolate forward and back NTurns/2 in energy from **E_R** and calculate the corresponding **Bρ**.
 Alternatively execute the python script BRHO_calc.py.
 ## Spin Tracking 
-Open the SpnTrk.dat and notice some changes between the previous exercises:
+Open the file SpnTrk.dat. The magnetic elements in this file have been scaled to a corresponding rigidity of 1000 kG Cm.
 
-* OBJET=2 which allows input of intial coordinates for each particle being tracked. ***Enter the values you calculated into these fields***
+Changes between the previous exercises:
+* OBJET=2 which allows input of intial coordinates for each particle being tracked. 
 * SPNTRK has also been introduced with a value of 3 (this means all particles spins are vertically aligned). 
 * FAISTORE has been introduced. With each pass, particle parameters will be saved to the file zgoubi.fai.
-* SCALING is being used to scale magnetic elements 'BEND' and 'MULTIPOL' from initial rigidities to final rigidities over Nturns. ***Enter the values you calculated into these fields***
+* SCALING is being used to scale magnetic elements 'BEND' and 'MULTIPOL' from initial rigidities to final rigidities over Nturns. ***Enter the values you calculated into these fields/1000***
 
 At the end of this file we have introduced:
 * CAVITE which will give the particle a longitudinal kick based off its longitudinal coordinate. For a option #2, CAVITE takes the circumference, the RF harmonic, the cavity voltage, and the synchronous phase. ***Enter the cavity voltage used to determine the intial and final rigidities from the number of turns***
-* REBELOTE will pass particles through the lattice a number of times =**NTurns**. ***Enter the number of turns you used to determine intial and final rigidities***
+* REBELOTE will pass particles through the lattice a number of times =**NTurns-1**. ***Enter the number of turns -1 you used to determine intial and final rigidities***
 
 Each pass through the lattice, the magnetic strength of all elements will be scaled by SCALING which will correspond to the gain in energy by CAVITE.
 
