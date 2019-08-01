@@ -3,33 +3,34 @@
 ## Files
 
 * SpnTrk.dat
-* plotFai.py
+* plotFai.ipynb
+* BRHO_calc.py
 
 ## Instructions
 In this exercise, we will track a particle through an intrinsic spin resonance and make comparison to the classic Froissart-Stora formula.
 This zgoubi input file is the same PSR lattice that you have seen previously. There are some variables that are left for you to calculate and fill in(CavV, NTurns, BRHO_0, BRHO_f). The input file will not execute properly until done so.
 
 Vertical intrinsic spin resonances occur when the frequency of spin precession is in phase with the vertical betatron motion. That is when:
-```
-Gγ_R=NP±ν_y
-```
-where **Gγ=ν_s** is the spin tune, N is an integer, and P is the periodicity of the lattice.
-You calculated the tunes in exercise 1, and determined the integer component in exercise 2. You will use these in calculating the location of the **0+ν_y** resonance.
+
+Gγ<sub>R</sub>=NP±ν<sub>y</sub>
+
+where **Gγ=ν<sub>s</sub>** is the spin tune, N is an integer, and P is the periodicity of the lattice.
+You calculated the tunes in exercise 1, and determined the integer component in exercise 2. You will use these in calculating the location of the **0+ν<sub>y</sub>** resonance.
 The Froissart-Stora formula is defined as:
-```
-P_f/P_i=2exp(-(π|ε_k|)/(2α))-1
-```
-where **α=(GΔE)/(2πM_o)** is the crossing speed, **ε_k** is the resonance strength, and **P_i** and **P_f** are the asymptotic values of the polarization before and after the resonance crossing. The change in energy per turn, **ΔE** is based off the cavity voltage (CavV) you decide to use. Keep in mind that **ε_k** is related to the optics and the vertical betatron amplitude. If you choose a voltage too high, you might not see anything; choose a voltage too low and the effects may be too strong. Try a few thousand volts. 
+
+P<sub>f</sub>/P<sub>i</sub>=2exp(-(π|ε<sub>k</sub>|)/(2α))-1
+
+where **α=(GΔE)/(2πM<sub>o</sub>)** is the crossing speed, **ε<sub>k</sub>** is the resonance strength, and **P<sub>i</sub>** and **P<sub>f</sub>** are the asymptotic values of the polarization before and after the resonance crossing. The change in energy per turn, **ΔE** is based off the cavity voltage (CavV) you decide to use. Keep in mind that **ε<sub>k</sub>** is related to the optics and the vertical betatron amplitude. If you choose a voltage too high, you might not see anything; choose a voltage too low and the effects may be too strong. Try a few thousand volts. 
 
 ![alt text](PSR_SPNTRK.png "Protons crossing 0+ resonance.")
 
 Your intial and final values of **Bρ** will be determined based off the number of turns you track for (separated NTurns/2 from the resonance so the resonance is centered in the tracking). The conversion from **γ** to **Bρ** is straight forward:
-* γ_R =Gγ_R/G 
-* E_R =γ_R*M_o
-* Bρ_R=uoc*(E_R^2-Mo^2)^{1/2}/Q
+* γ<sub>R</sub> =Gγ_R/G 
+* E<sub>R</sub> =γ_R*M_o
+* Bρ<sub>R</sub>=uoc*(E<sub>R</sub>^2-M<sub>o</sub>^2)^{1/2}/Q
 with uoc=1.0/0.299792458
 
-Using the above formula and the RF parameters, extrapolate forward and back NTurns/2 in energy from **E_R** and calculate the corresponding **Bρ**.
+Using the above formula and the RF parameters, extrapolate forward and back NTurns/2 in energy from **E<sub>R</sub>** and calculate the corresponding **Bρ**.
 Alternatively execute the python script BRHO_calc.py.
 ## Spin Tracking 
 Open the file SpnTrk.dat. The magnetic elements in this file have been scaled to a corresponding rigidity of 1000 kG Cm.
