@@ -21,25 +21,25 @@ P_f/P_i=2exp(-(π|ε_k|)/(2α))
 ```
 where **α=(GΔE)/(2πM_o)** is the crossing speed, **ε_k** is the resonance strength, and **P_i** and **P_f** are the asymptotic values of the polarization before and after the resonance crossing. The change in energy per turn, **ΔE** is based off the cavity voltage (CavV) you decide to use. Keep in mind that **ε_k** is related to the optics and the vertical betatron amplitude. If you choose a voltage too high, you might not see anything; choose a voltage too low and the effects may be too strong. Try a few thousand volts. 
 
-### The goal is to calculate the resonance strength, **ε_k**.
-
 Your intial and final values of **Bρ** will be determined based off the number of turns you track for (separated NTurns/2 from the resonance so the resonance is centered in the tracking). The conversion from **γ** to **Bρ** is straight forward:
 * γ_R =Gγ_R/G 
 * E_R =γ_R*M_o
 * Bρ_R=uoc*(E_R^2-Mo^2)^{1/2}/Q
 with uoc=1.0/0.299792458
 
-Calculate the intial and final rigidities using a few thousand turns.
+Using the above formula and the RF parameters, extrapolate forward and back NTurns/2 in energy from **E_R** and calculate the corresponding **Bρ**.
+Alternatively execute the python script BRHO_calc.py.
 ## Spin Tracking 
 Open the SpnTrk.dat and notice some changes between the previous exercises:
-This file uses OBJET=2 which allows input of intial coordinates for each particle being tracked. 
+
+* OBJET=2 which allows input of intial coordinates for each particle being tracked. ***Enter the values you calculated into these fields***
 * SPNTRK has also been introduced with a value of 3 (this means all particles spins are vertically aligned). 
 * FAISTORE has been introduced. With each pass, particle parameters will be saved to the file zgoubi.fai.
-* SCALING is being used to scale magnetic elements 'BEND' and 'MULTIPOL' from initial rigidities to final rigidities over Nturns. ***Enter the values you calculated into these fields***.
+* SCALING is being used to scale magnetic elements 'BEND' and 'MULTIPOL' from initial rigidities to final rigidities over Nturns. ***Enter the values you calculated into these fields***
 
 At the end of this file we have introduced:
-* CAVITE which will give the particle a longitudinal kick based off its longitudinal coordinate. For a option #2, CAVITE takes the circumference, the RF harmonic, the cavity voltage, and the synchronous phase. ***Enter the cavity voltage used to determine the intial and final rigidities from the number of turns***.
-* REBELOTE will pass particles through the lattice a number of times =**NTurns**. ***Enter the number of turns you used to determine intial and final rigidities***.
+* CAVITE which will give the particle a longitudinal kick based off its longitudinal coordinate. For a option #2, CAVITE takes the circumference, the RF harmonic, the cavity voltage, and the synchronous phase. ***Enter the cavity voltage used to determine the intial and final rigidities from the number of turns***
+* REBELOTE will pass particles through the lattice a number of times =**NTurns**. ***Enter the number of turns you used to determine intial and final rigidities***
 
 Each pass through the lattice, the magnetic strength of all elements will be scaled by SCALING which will correspond to the gain in energy by CAVITE.
 
