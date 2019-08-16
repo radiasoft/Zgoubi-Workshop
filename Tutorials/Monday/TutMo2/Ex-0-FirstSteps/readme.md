@@ -20,7 +20,7 @@ besides those that define the PSR lattice?
 Have a look in the [Zgoubi Users' Guide](https://github.com/radiasoft/Zgoubi-Workshop/blob/master/Zgoubi.pdf)
 for information about the keywords
 `'OBJET'` (pp. 55 and 258),
-`'FAISTORE'` (pp.&#8209;169 and 233),
+`'FAISTORE'` (pp.&#00A0;169 and 233),
 `'MATRIX'` (pp. 175 and 252),
 and `'REBELOTE'` (pp. 79 and 275).
 
