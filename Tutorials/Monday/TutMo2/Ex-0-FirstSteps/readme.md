@@ -28,7 +28,7 @@ and `'REBELOTE'` (pp.&#160;80 and 277).
 In a terminal, navigate to this directory, then run Zgoubi on the input
 `PSR.dat`. You do this with the command
 ```
-zgoubi -in PSR.dat
+zgoubi -in PSR-FirstSteps.dat
 ```
 After running Zgoubi, verify that it exited normally. 
 
