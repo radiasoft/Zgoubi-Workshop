@@ -1,5 +1,5 @@
 #KEK 150 DFD triplet FFAG
-import pylab as pl
+import pylab as plt
 
 ffagex = Line('ffagex')
 
@@ -96,20 +96,22 @@ ffagex.add(reb)
 
 ffagex.add(END())
 
+#set injection and extraction rigidity
 rigidity_inj = ke_to_rigidity(11e6, 938.272013e6)
 rigidity_ext = ke_to_rigidity(150e6, 938.272013e6)
+mom_inj = rigidity_inj*SPEED_OF_LIGHT/1000
+mom_ext = rigidity_ext*SPEED_OF_LIGHT/1000
+
+#array of momenta at which to calculate the closed orbit
+mom_a = numpy.linspace(mom_inj, mom_ext, 10)
+
+#p/p0 
+D_a = mom_a/mom_ext
+
 ob.set(BORO=rigidity_ext)
-
-D_inj = rigidity_inj/rigidity_ext
-
 co_guess = [450,0,0,0]
 
-#set rigidities at which to find the closed orbit
-rigidity_a = numpy.linspace(rigidity_inj, rigidity_ext, 10)
-D_a = rigidity_a/rigidity_ext
-
-
-#find the closed orbits
+#find the closed orbit at each momentum
 co_l = []
 for D in D_a:
 	#D = rigidity/rigidity_ext
@@ -117,10 +119,13 @@ for D in D_a:
 	co_guess = co1 #update guess
 	
 	co_l.append(list(co1))
-	
-#print "list of closed orbit start coordinates ",co_l
 
-#track through the lattice once, writing all coordinates to zgoubi.plt
+print "p/p0, p [MeV/c], co"
+for D,p,co in zip(D_a,mom_a,co_l):
+    print D,1e-6*p,co
+
+sys.exit()
+#track through the lattice once, writing all coordinates to zgoubi.plt and plot trajectories
 reb.set(NPASS=0)
 ffagex.full_tracking(True)
 
@@ -137,23 +142,23 @@ for co, D in zip(co_l, D_a):
 	theta = traj[:,1]
 	y = traj[:,2]
 	bz = traj[:,3]
+    
+	plt.subplot(211)
+	plt.plot(theta,y)
+	plt.xlabel('s [cm]')
+	plt.ylabel('r [cm]')
+	plt.hspace(0.2)
+	plt.xlim(xmax=theta[-1])	
+	plt.subplot(212)
+	plt.plot(theta, bz)
 	
-	
-	pl.subplot(211)
-	pl.plot(theta,y)
-	pl.xlabel('s [cm]')
-	pl.ylabel('r [cm]')
-	#pl.hspace(0.2)
-	pl.xlim(xmax=theta[-1])	
-	pl.subplot(212)
-	pl.plot(theta, bz)
-	
-	pl.ylabel('Bz [kG]')
-	pl.xlabel('azimuthal angle [rad]')
+	plt.ylabel('Bz [kG]')
+	plt.xlabel('azimuthal angle [rad]')
 
 
-pl.xlim(xmax=theta[-1])	
-pl.tight_layout()
-pl.show()
+plt.xlim(xmax=theta[-1])	
+plt.tight_layout()
+plt.savefig('kek_closed_orbits')
+#plt.show()
 	
 	
