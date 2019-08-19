@@ -53,7 +53,6 @@ resol = 2
 xpas = 0.25
 kpos = 2
 
-
 ob = OBJET2()
 ffagex.add(ob)
 
@@ -103,7 +102,8 @@ mom_inj = rigidity_inj*SPEED_OF_LIGHT/1000
 mom_ext = rigidity_ext*SPEED_OF_LIGHT/1000
 
 #array of momenta at which to calculate the closed orbit
-mom_a = numpy.linspace(mom_inj, mom_ext, 10)
+#mom_a = numpy.linspace(mom_inj, mom_ext, 10)
+mom_a = numpy.array([mom_inj])
 
 #p/p0 
 D_a = mom_a/mom_ext
@@ -122,7 +122,7 @@ for D in D_a:
 
 #track through the lattice once, writing all coordinates to zgoubi.plt and plot trajectories
 reb.set(NPASS=0)
-ffagex.full_tracking(True)
+ffagex.full_tracking(False)
 
 #OBJET KOBJ = 5 to calculate transfer matrix
 ob5 = OBJET5()
@@ -137,12 +137,10 @@ for co, D in zip(co_l, D_a):
 		ffagex.replace(ob5, ob)
 		ffagex.replace(matrix, reb)
 
-
 	ob.clear()
 	ob.add(Y=co[0],T=co[1],D=D)
 	
 	res = ffagex.run(xterm = False)
-	traj = res.get_track('plt', ['S','X','Y','BZ'])
 
 	ffagex.replace(ob, ob5) 
 	
@@ -157,12 +155,27 @@ for co, D in zip(co_l, D_a):
 
 	#find tune calculated by MATRIX over this periodic cell
 	tune = r.get_tune()
-
 	tune_l.append(tune)
+
+	#get twiss parameters at end of cell, returns [beta_y,alpha_y,gamma_y,disp_y,disp_py,beta_z,alpha_z,gamma_z,disp_z,disp_pz]
+	twissparam = r.get_twiss_parameters()
+	betayz = [twissparam['beta_y'][0],twissparam['beta_z'][0]]
+	alphayz = [twissparam['alpha_y'][0],twissparam['alpha_z'][0]]
+	gammayz = [twissparam['gamma_y'][0],twissparam['gamma_z'][0]]
+
+	print "beta y,z ",betayz
+	print "alpha y,z ",alphayz
+	print "gamma y,z ",gammayz
+
+	#switch on output of zgoubi.plt
+	ffagex.full_tracking(True)
+
+	#calculate the twiss parameters at each point in the zgoubi.plt file
+	twiss_profiles = get_twiss_profiles(ffagex,'twiss_profiles'+str(i_co)+'.txt')
 
 	i_co = i_co + 1
 
-print "p/p0, p [MeV/c], tune (h,v)"
+print "p/p0, p [MeV/c], tune (y,z)"
 for D,p,tune in zip(D_a,mom_a,tune_l):
     print D,1e-6*p,tune[0], tune[1]
 
