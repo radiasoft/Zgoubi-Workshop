@@ -103,7 +103,7 @@ mom_inj = rigidity_inj*SPEED_OF_LIGHT/1000
 mom_ext = rigidity_ext*SPEED_OF_LIGHT/1000
 
 #array of momenta at which to calculate the closed orbit
-mom_a = numpy.linspace(mom_inj, mom_ext, 10)
+mom_a = numpy.linspace(mom_inj, mom_ext, 8)
 
 #p/p0 
 D_a = mom_a/mom_ext
@@ -124,41 +124,45 @@ print "p/p0, p [MeV/c], co"
 for D,p,co in zip(D_a,mom_a,co_l):
     print D,1e-6*p,co
 
-sys.exit()
 #track through the lattice once, writing all coordinates to zgoubi.plt and plot trajectories
 reb.set(NPASS=0)
 ffagex.full_tracking(True)
 
+plot = False
+i_co = 0
 for co, D in zip(co_l, D_a):
 	
-	ob.clear()
-	ob.add(Y=co[0],T=co[1],D=D)
+    ob.clear()
+    ob.add(Y=co[0],T=co[1],D=D)
 	
-	res = ffagex.run(xterm = False)
+    res = ffagex.run(xterm = False)
 	
-	traj = res.get_track('plt', ['S','X','Y','BZ'])
+    traj = res.get_track('plt', ['S','X','Y','BZ'])
 	
-	s = traj[:,0]
-	theta = traj[:,1]
-	y = traj[:,2]
-	bz = traj[:,3]
+    res.save_plt('co'+str(i_co)+'.plt')
     
-	plt.subplot(211)
-	plt.plot(theta,y)
-	plt.xlabel('s [cm]')
-	plt.ylabel('r [cm]')
-	plt.hspace(0.2)
-	plt.xlim(xmax=theta[-1])	
-	plt.subplot(212)
-	plt.plot(theta, bz)
-	
-	plt.ylabel('Bz [kG]')
-	plt.xlabel('azimuthal angle [rad]')
+    s = traj[:,0]
+    theta = traj[:,1]
+    y = traj[:,2]
+    bz = traj[:,3]
+    
+    if plot:
+        plt.subplot(211)
+        plt.plot(theta,y)
+        plt.xlabel('s [cm]')
+        plt.ylabel('r [cm]')
+        plt.hspace(0.2)
+        plt.xlim(xmax=theta[-1])	
+        plt.subplot(212)
+        plt.plot(theta, bz)
 
-
-plt.xlim(xmax=theta[-1])	
-plt.tight_layout()
-plt.savefig('kek_closed_orbits')
-#plt.show()
+        plt.ylabel('Bz [kG]')
+        plt.xlabel('azimuthal angle [rad]')
+                 
+    i_co = i_co + 1
 	
-	
+if plot:
+    plt.xlim(xmax=theta[-1])	
+    plt.tight_layout()
+    plt.savefig('kek_closed_orbits')
+    #plt.show()	
