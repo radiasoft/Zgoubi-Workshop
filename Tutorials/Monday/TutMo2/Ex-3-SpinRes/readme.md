@@ -20,7 +20,7 @@ The Froissart-Stora formula is defined as:
 
 P<sub>f</sub>/P<sub>i</sub>=2exp(-(π|ε<sub>k</sub>|)/(2α))-1
 
-where **α=(GΔE)/(2πM<sub>o</sub>)** is the crossing speed, M<sub>o is the rest mass, **ε<sub>k</sub>** is the resonance strength, and **P<sub>i</sub>** and **P<sub>f</sub>** are the asymptotic values of the polarization before and after the resonance crossing. The change in energy per turn, **ΔE** is based off the cavity voltage (CavV) you decide to use. Keep in mind that **ε<sub>k</sub>** is related to the optics and the vertical betatron amplitude. If you choose a voltage too high, you might not see anything; choose a voltage too low and the effects may be too strong. Try a few thousand volts. 
+where **α=(GΔE)/(2πM<sub>o</sub>)** is the crossing speed, **M<sub>o** is the rest mass, **ε<sub>k</sub>** is the resonance strength, and **P<sub>i</sub>** and **P<sub>f</sub>** are the asymptotic values of the polarization before and after the resonance crossing. The change in energy per turn, **ΔE** is based off the cavity voltage (CavV) you decide to use. Keep in mind that **ε<sub>k</sub>** is related to the optics and the vertical betatron amplitude. If you choose a voltage too high, you might not see anything; choose a voltage too low and the effects may be too strong. Try a few thousand volts. 
 
 ![alt text](PSR_SPNTRK.png "Protons crossing 0+ resonance.")
 
