@@ -26,7 +26,7 @@ acn3 = 23.535
 
 #Fringe field extent [m], shape, coefficients
 g0 = 6.3e-2
-kappa = 3
+kappa = -1# 3
 nc = 4
 c0 = 0.1455
 c1 = 2.2670  
@@ -52,7 +52,6 @@ kird = 0
 resol = 2
 xpas = 0.25
 kpos = 2
-
 
 ob = OBJET2()
 ffagex.add(ob)
@@ -103,7 +102,8 @@ mom_inj = rigidity_inj*SPEED_OF_LIGHT/1000
 mom_ext = rigidity_ext*SPEED_OF_LIGHT/1000
 
 #array of momenta at which to calculate the closed orbit
-mom_a = numpy.linspace(mom_inj, mom_ext, 8)
+#mom_a = numpy.linspace(mom_inj, mom_ext, 10)
+mom_a = numpy.array([mom_inj])
 
 #p/p0 
 D_a = mom_a/mom_ext
@@ -120,51 +120,63 @@ for D in D_a:
 	
 	co_l.append(list(co1))
 
-print "p/p0, p [MeV/c], co"
-for D,p,co in zip(D_a,mom_a,co_l):
-    print D,1e-6*p,co
-
-
 #track through the lattice once, writing all coordinates to zgoubi.plt and plot trajectories
 reb.set(NPASS=0)
-ffagex.full_tracking(True)
+ffagex.full_tracking(False)
 
+#OBJET KOBJ = 5 to calculate transfer matrix
+ob5 = OBJET5()
+matrix=MATRIX(IORD=1,IFOC=11)
 
 plot = False
 i_co = 0
+tune_l = []
 for co, D in zip(co_l, D_a):
 	
-    ob.clear()
-    ob.add(Y=co[0],T=co[1],D=D)
-	
-    res = ffagex.run(xterm = False)
-	
-    traj = res.get_track('plt', ['S','X','Y','BZ'])
-	
-    res.save_plt('co'+str(i_co)+'.plt')
-    
-    s = traj[:,0]
-    theta = traj[:,1]
-    y = traj[:,2]
-    bz = traj[:,3]
-    
-    if plot:
-        plt.subplot(211)
-        plt.plot(theta,y)
-        plt.xlabel('s [cm]')
-        plt.ylabel('r [cm]')
-        plt.hspace(0.2)
-        plt.xlim(xmax=theta[-1])	
-        plt.subplot(212)
-        plt.plot(theta, bz)
+	if i_co > 0:
+		ffagex.replace(ob5, ob)
+		ffagex.replace(matrix, reb)
 
-        plt.ylabel('Bz [kG]')
-        plt.xlabel('azimuthal angle [rad]')
-                 
-    i_co = i_co + 1
+	ob.clear()
+	ob.add(Y=co[0],T=co[1],D=D)
 	
-if plot:
-    plt.xlim(xmax=theta[-1])	
-    plt.tight_layout()
-    plt.savefig('kek_closed_orbits')
-    #plt.show()	
+	res = ffagex.run(xterm = False)
+
+	ffagex.replace(ob, ob5) 
+	
+	ffagex.replace(reb,matrix)
+    
+	ob5.set(BORO=rigidity_ext)
+	ob5.set(PY=1e-4,PT=1e-3,PZ=1e-4,PP=1e-3,PX=1e-3,PD=1e-3)
+	ob5.set(YR=co[0],TR=co[1],ZR=co[2],PR=co[3],DR=D)
+	
+	#run zgoubi to find tune etc.
+	r = ffagex.run(xterm = False)
+
+	#find tune calculated by MATRIX over this periodic cell
+	tune = r.get_tune()
+	tune_l.append(tune)
+
+	#get twiss parameters at end of cell, returns [beta_y,alpha_y,gamma_y,disp_y,disp_py,beta_z,alpha_z,gamma_z,disp_z,disp_pz]
+	twissparam = r.get_twiss_parameters()
+	betayz = [twissparam['beta_y'][0],twissparam['beta_z'][0]]
+	alphayz = [twissparam['alpha_y'][0],twissparam['alpha_z'][0]]
+	gammayz = [twissparam['gamma_y'][0],twissparam['gamma_z'][0]]
+
+	print "beta y,z ",betayz
+	print "alpha y,z ",alphayz
+	print "gamma y,z ",gammayz
+
+	#switch on output of zgoubi.plt
+	ffagex.full_tracking(True)
+
+	#calculate the twiss parameters at each point in the zgoubi.plt file
+	twiss_profiles = get_twiss_profiles(ffagex,'twiss_profiles'+str(i_co)+'.txt')
+
+	i_co = i_co + 1
+
+print "p/p0, p [MeV/c], tune (y,z)"
+for D,p,tune in zip(D_a,mom_a,tune_l):
+    print D,1e-6*p,tune[0], tune[1]
+
+
