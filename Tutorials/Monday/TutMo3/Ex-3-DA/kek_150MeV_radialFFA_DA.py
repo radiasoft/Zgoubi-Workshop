@@ -103,7 +103,8 @@ mom_inj = rigidity_inj*SPEED_OF_LIGHT/1000
 mom_ext = rigidity_ext*SPEED_OF_LIGHT/1000
 
 #array of momenta at which to calculate the closed orbit
-mom_a = numpy.linspace(mom_inj, mom_ext, 8)
+#mom_a = numpy.linspace(mom_inj, mom_ext, 8)
+mom_a = numpy.array([mom_inj])
 
 #p/p0 
 D_a = mom_a/mom_ext
@@ -111,7 +112,7 @@ D_a = mom_a/mom_ext
 ob.set(BORO=rigidity_ext)
 co_guess = [450,0,0,0]
 
-#find the closed orbit at each momentum
+#first step - find the closed orbit at each momentum
 co_l = []
 for D in D_a:
 	#D = rigidity/rigidity_ext
@@ -120,51 +121,96 @@ for D in D_a:
 	
 	co_l.append(list(co1))
 
-print "p/p0, p [MeV/c], co"
-for D,p,co in zip(D_a,mom_a,co_l):
-    print D,1e-6*p,co
 
-
-#track through the lattice once, writing all coordinates to zgoubi.plt and plot trajectories
 reb.set(NPASS=0)
 ffagex.full_tracking(True)
 
+#OBJET KOBJ = 5 to calculate transfer matrix
+ob5 = OBJET5()
+matrix=MATRIX(IORD=1,IFOC=11)
 
 plot = False
-i_co = 0
+i_D = 0
+tune_l = []
+
 for co, D in zip(co_l, D_a):
 	
-    ob.clear()
-    ob.add(Y=co[0],T=co[1],D=D)
-	
-    res = ffagex.run(xterm = False)
-	
-    traj = res.get_track('plt', ['S','X','Y','BZ'])
-	
-    res.save_plt('co'+str(i_co)+'.plt')
-    
-    s = traj[:,0]
-    theta = traj[:,1]
-    y = traj[:,2]
-    bz = traj[:,3]
-    
-    if plot:
-        plt.subplot(211)
-        plt.plot(theta,y)
-        plt.xlabel('s [cm]')
-        plt.ylabel('r [cm]')
-        plt.hspace(0.2)
-        plt.xlim(xmax=theta[-1])	
-        plt.subplot(212)
-        plt.plot(theta, bz)
+	if i_D > 0:
+		ffagex.replace(ob5, ob)
+		ffagex.replace(matrix, reb)
 
-        plt.ylabel('Bz [kG]')
-        plt.xlabel('azimuthal angle [rad]')
-                 
-    i_co = i_co + 1
+	ob.clear()
+	ob.add(Y=co[0],T=co[1],D=D)
 	
-if plot:
-    plt.xlim(xmax=theta[-1])	
-    plt.tight_layout()
-    plt.savefig('kek_closed_orbits')
-    #plt.show()	
+	res = ffagex.run(xterm = False)
+
+	ffagex.replace(ob, ob5) 
+	ffagex.replace(reb,matrix)
+    
+	ob5.set(BORO=rigidity_ext)
+	ob5.set(PY=1e-4,PT=1e-3,PZ=1e-4,PP=1e-3,PX=1e-3,PD=1e-3)
+	ob5.set(YR=co[0],TR=co[1],ZR=co[2],PR=co[3],DR=D)
+	
+	#run zgoubi to find tune etc.
+	r = ffagex.run(xterm = False)
+
+	#find tune calculated by MATRIX over this periodic cell
+	tune = r.get_tune()
+	tune_l.append(tune)
+
+	#get twiss parameters at end of cell, returns [beta_y,alpha_y,gamma_y,disp_y,disp_py,beta_z,alpha_z,gamma_z,disp_z,disp_pz]
+	twissparam = r.get_twiss_parameters()
+	betayz = [twissparam['beta_y'][0],twissparam['beta_z'][0]]
+	alphayz = [twissparam['alpha_y'][0],twissparam['alpha_z'][0]]
+	gammayz = [twissparam['gamma_y'][0],twissparam['gamma_z'][0]]
+
+	print "beta y,z ",betayz
+	print "alpha y,z ",alphayz
+	print "gamma y,z ",gammayz
+	
+	ffagex.replace(ob5, ob) 
+	ffagex.replace(matrix,reb)
+	
+	#choose set of amplitudes values at which to test for survival over npass turns
+	nemit = 5
+	npass = 12*200
+	emit_list_h = numpy.linspace(1e-4, 2e-3,nemit)
+	emit_list_v = [0]*nemit
+
+	#call the DA function in PyZgoubi
+	scanda_data = scan_dynamic_aperture(ffagex, emit_list_h, emit_list_v, co, npass, D_mom=D, beta_gamma_input = 1, ellipse_coords = 1, coord_pick = 0, twiss_parameters = twissparam, plot_data = True)
+	
+	print "scan_dynamic_aperture output ",scanda_data
+	
+	#the DA is defined as the largest stable amplitude before loss
+	if scanda_data[0][0] != None:
+		istb = scanda_data[0][0] - 1 #index of highest stable amp
+		da_h = emit_list_h[istb]
+		print "DA (horizontal) ",da_h
+		emit_stable_h = emit_list_h[:istb+1]
+	else:
+		print "DA not found"
+		emit_stable_h = list(emit_list_h)
+		
+	fft_tune_scan_h = [s[0] for s in scanda_data[1]]
+	fft_tune_scan_v = [s[1] for s in scanda_data[1]]
+	print "tune (H) vs amplitude ",fft_tune_scan_h
+	print "tune (V) vs amplitude ",fft_tune_scan_v
+	
+	plot_tune_vs_amp = False
+	if plot_tune_vs_amp:
+		plt.plot(emit_stable_h, fft_tune_scan_h,'ko-')
+		plt.plot(emit_stable_h, fft_tune_scan_h,'bo')
+		plt.xlabel('amplitude')
+		plt.ylabel('tune')
+		plt.savefig('amp_detune.png')
+		plt.show()	
+	
+	i_D = i_D + 1
+	
+
+	
+			
+	
+    
+
