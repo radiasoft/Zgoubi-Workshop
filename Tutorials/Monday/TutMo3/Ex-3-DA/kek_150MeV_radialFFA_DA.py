@@ -1,5 +1,6 @@
 #KEK 150 DFD triplet FFAG
 import pylab as plt
+import time
 
 ffagex = Line('ffagex')
 
@@ -178,7 +179,7 @@ for co, D in zip(co_l, D_a):
 	emit_list_v = [0]*nemit
 
 	#call the DA function in PyZgoubi
-	scanda_data = scan_dynamic_aperture(ffagex, emit_list_h, emit_list_v, co, npass, D_mom=D, beta_gamma_input = 1, ellipse_coords = 1, coord_pick = 0, twiss_parameters = twissparam, plot_data = True)
+	scanda_data = scan_dynamic_aperture(ffagex, emit_list_h, emit_list_v, co, npass, D_mom=D, beta_gamma_input = 1, ellipse_coords = 1, coord_pick = 0, twiss_parameters = twissparam, plot_data = False)
 	
 	print "scan_dynamic_aperture output ",scanda_data
 	
