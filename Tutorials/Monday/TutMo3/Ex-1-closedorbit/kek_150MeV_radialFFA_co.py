@@ -135,7 +135,6 @@ for D,p,co in zip(D_a,mom_a,co_l):
 reb.set(NPASS=0)
 ffagex.full_tracking(True)
 
-LET = '\'o\''
 
 plot = False
 i_co = 0
@@ -173,7 +172,7 @@ for co, D in zip(co_l, D_a):
                  
     i_co = i_co + 1
     
-searchCO_file.close()
+
 	
 if plot:
     plt.xlim(xmax=theta[-1])	
