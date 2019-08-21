@@ -103,7 +103,7 @@ mom_inj = rigidity_inj*SPEED_OF_LIGHT/1000
 mom_ext = rigidity_ext*SPEED_OF_LIGHT/1000
 
 #array of momenta at which to calculate the closed orbit
-nmom = 8
+nmom = 50#8
 if nmom == 1:
     mom_a = numpy.array([mom_ext])
 else:
@@ -135,6 +135,10 @@ for D,p,co in zip(D_a,mom_a,co_l):
 reb.set(NPASS=0)
 ffagex.full_tracking(True)
 
+#This file is useful for acceleration in order to establish the frequency law
+searchCO_file = open('searchCO.out_COs','w')
+
+LET = '\'o\''
 
 plot = False
 i_co = 0
@@ -147,7 +151,7 @@ for co, D in zip(co_l, D_a):
 	
     traj = res.get_track('plt', ['S','X','Y','T','BZ','tof'])
 	
-    res.save_plt('co'+str(i_co)+'.plt')
+    #res.save_plt('co'+str(i_co)+'.plt')
     
     s = traj[:,0]
     theta = traj[:,1]
@@ -156,6 +160,8 @@ for co, D in zip(co_l, D_a):
     bz = traj[:,4]
     tof = traj[:,5]
     print "final s, y, t,theta ",s[-1],y[-1],t[-1],theta[-1],tof[-1]
+    
+    searchCO_file.write('%8.6e %8.6e %8.6e %8.6e %8.6e %8.6e %8.6e %s %5.2f \n'%(co[0],co[1],co[2],co[3],0,D, tof[-1]*1e-5,LET,ke_a[i_co]*1e-6))
                         
     if plot:
         plt.subplot(211)
@@ -172,7 +178,7 @@ for co, D in zip(co_l, D_a):
                  
     i_co = i_co + 1
     
-
+searchCO_file.close()
 	
 if plot:
     plt.xlim(xmax=theta[-1])	

@@ -20,5 +20,10 @@ for information about the keywords relevant to this tutorial:
 `'SCALING'` (pp.&#160;82 and 278)
 and `'CAVITE'` (pp.&#160;110 and 212).
 
+This tutorial will use Zgoubi both directly and via the python interface PyZgoubi. In order to run the latest version of PyZgoubi the 
+following commands should be executed.
+
+pyenv activate py2
+pip install pyzgoubi==0.7.0b1
 
 
