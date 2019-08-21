@@ -6,7 +6,7 @@ PSR with SBends and Sextupoles ON
 0.    0.    0.    0.    0.    1.      ! Y0/cm T0/m0 Z0/cm P0/m0 S0/cm D0/1
  
  'PARTICUL'                                                                                                   2
-PROTON
+938.2796  1.6021892  1.7928456  0.0  0.0  ! m/(MeV/c^2) Q/C G/1 t/s X/nu
  
  'SCALING'                                                                                                    3
 1 1
@@ -14,7 +14,11 @@ MULTIPOL SEXT
 -1
 0.
 1
- 
+
+ 'OPTIONS'
+1 1
+WRITE OFF
+
 !=== Los Alamos PSR Lattice ===
 !--- cell 0 ---
  'DRIFT'                                                                                                      4
@@ -496,7 +500,11 @@ MULTIPOL SEXT
  'DRIFT'                                                                                                    101
 228.646
 !==============================
- 
+
+ 'OPTIONS'
+1 1
+WRITE ON
+
  'FIT2'                                                                                                     102
 2  save
 1 30 0 [-1.,+1.]
@@ -509,7 +517,7 @@ MULTIPOL SEXT
 1 11  PRINT
  
  'REBELOTE'                                                                                                 104
-4 1.1 0 1
+4 0.1 0 1
 1
 OBJET 35  1.001  0.999  1.0001  0.9999
  
