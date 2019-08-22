@@ -1,20 +1,38 @@
-# Exercise 4 - Acceleration in an FFA.
+# Exercise 0 - First Steps with FFA modelling
 
 ## Zgoubi input files
 
-kek_phaseEnerg.dat
+```
+kek_radialFFA.dat
+raccam_spiralFFA.dat
+```
+
+## PyZgoubi files
+
+```
+kek_radialFFA.py
+raccam_spiralFFA.py
+```
 
 ## Instructions
 
-In an FFA, the time of flight at each turn is not known at the outset. A frequency law file must first be created based on the turn-by-turn TOF calculated across
-the desired energy range by tracking a series of fixed momentum particles.
+We begin by gaining familiarity with the two FFA elements, "FFAG" and "FFAG-SPI" in order to understand how
+the geometry, magnetic field profile, fringe field and spiral angle are defined.
 
-The following procedure applies in the KEK case
+Read about the radial and spiral FFA elements in the guide:
+```
+'FFAG' (pp.137 and 234)
+'FFAG-SPI' (pp.139 and 235)
+```
 
-1. Run kek_150MeVradialFFA_co2.py to calculate the TOF across the momentum range and, hence, generate searchCO.outCOs. Copy searchCO.outCOs into the freqlaw_tool subdirectory.
-2. Go into that directory. If an executable isn't present, first compile Et2nf.f. Modify Et2nf.In with the desired RF voltage and synchronous phase.
-3. Run the executable. There should now be a zgoubi.freqLaw.In file linked to freqlaw_tool/Et2nf.Out.
-3. Set the desired number of turns in kek_phaseEnerg.dat (in REBELOTE). Run the input file.
-4. View the output (zgoubi.fai) using the plotFai_accel jupyter script.
+Open the input file for the KEK lattice and, by comparing with the manual, gain an understanding of each parameter. Repeat the exercise for the RACCAM lattice.
 
-For other lattices, create the corresponding version of kek_150MeVradialFFA_co2.py and kek_phaseEnerg.dat.
+Run each lattice, e.g.
+```
+zgoubi -in kek_150MeV_radialFFA.dat
+```
+and examine zgoubi.res, particularly the description of the FFA element. This is a good cross check to ensure that the magnet has been set up by the code as expected.
+
+Finally, have a look at how each lattice is constructed in PyZygoubi.
+
+
