@@ -1,0 +1,37 @@
+
+
+
+For the record (no necessary reading, as all necessary files are present in this folder).
+Principle of acceleration, as done here, using SCALING/option=-2 + CAVITE:
+
+
+
+Acceleration by means of SCALING/option=-2 + CAVITE uses a RF law (voltage, frequency swing, synchrotronous phase). This RF law is read from zgoubi.freqLaw.In.
+
+zgoubi.freqLaw.In needs be fabricated, Et2nf does that based on a minimal, basic RF model, provided it is given a couple of hypotheses such as Vp, initial/final energies, ...
+
+
+
+To generate a frequency law for Zgoubi/CAVITE, logged in zgoubi.freqLaw.In:
+
+Assume lattice.dat contains the sequence.
+Note : (i)  E1, E2 in Et2fn.In must be same values as when accelerating in that lattice
+       (ii) V in Et2fn.In must be same as V in zgoubi/CAVITE 
+
+
+1- find several 10's of co's (max number is nd value in Et2fn.f), log them in searchCO.out_COs.  This can be done using REBELOTE with scan on initial Brho/BORO. The write format has to be as expected by the formatted read in Et2nf.f
+
+2- run Et2nf with searchCO.out_COs as input (ln -sf searchCO.out_COs Et2nf.In2), this will 
+ generate Et2nf.Out.
+ An additional necessaryu input data file to Et2nf is Et2nf.In (it tells #Cell, Vp(Volts), phs(deg), E1, E2 (eV))
+
+3- Et2nf.Out is the input zgoubi.freqLaw.In to zgoubi/CAVITE (ln -sf  Et2nf.Out zgoubi.freqLaw.In)
+
+Note : format for SCALING : 
+		'SCALING'   
+		 1   1
+		CAVITE
+		 -2    
+		     1  unused
+		     1  unused
+
