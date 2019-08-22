@@ -24,9 +24,9 @@ The closed orbit is first found by tracking in the KEK FFA cell 100 times (**kek
 
 A second, quicker method uses the Zgoubi FIT procedure to find the closed orbit (**kek_radiaFFA_fit.dat**).
 
-Finally, run *kek_radialFFA_co.py* to get PyZgoubi to find closed orbits across the momentum range.
-
 The file **kek_radialfFA_singlepass.dat** runs through the cell one time and outputs the coordinates at each integration step to zgoubi.plt. The orbit can then by viewed using *plotPlt_singlepass.ipynb*.
+
+Finally, run *kek_radialFFA_co.py* to get PyZgoubi to find closed orbits across the momentum range. The orbits, stored in a zgoubi.plt file at each momentum, can be viewed in *plotPlt_singlepass.ipynb*.
 
 Students are asked to repeat the closed orbit calculation in the RACCAM spiral FFA.
 
