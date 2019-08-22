@@ -18,6 +18,8 @@
 *.lot
 *.lox
 *.mpx
+*.nav
+*.snm
 *.toc
 
 *.synctex.gz*
@@ -31,3 +33,4 @@ zgoubi.fai
 zgoubi.plt
 zgoubi.res
 
+Tutorials/Monday/TutMo2/Presentation/Tutorial2.pdf
