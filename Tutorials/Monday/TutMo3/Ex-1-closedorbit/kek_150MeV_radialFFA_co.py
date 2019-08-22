@@ -126,9 +126,10 @@ for D in D_a:
 	
 	co_l.append(list(co1))
 
-print "p/p0, p [MeV/c], co"
+print "p/p0, p [MeV/c], co [Y[cm],T[mrad],Z[cm],P[mrad]]"
 for D,p,co in zip(D_a,mom_a,co_l):
     print D,1e-6*p,co
+    
 
 
 #track through the lattice once, writing all coordinates to zgoubi.plt and plot trajectories
