@@ -1,4 +1,4 @@
-# Exercise 0 - First Steps with FFA modelling
+# Exercise 1 - Finding the Closed Orbit
 
 ## Zgoubi input files
 
@@ -17,14 +17,15 @@ kek_radialFFa_co.py
 ```
 plotFai_phasespace.ipynb
 plotPlt_singlepass.ipynb
+plotPlt_labframe.ipynb
 ```
 ## Instructions
 
 The closed orbit is first found by tracking in the KEK FFA cell 100 times (**kek_radiaFFA_iter1.dat**). The mean of the resulting phase space coordinates serve as a starting point for the next iteration (**kek_radiaFFA_iter2.dat**). The phase space on each iteration can be viewed using *plotFai_phasespace.ipynb*. 
 
-A second, quicker method uses the Zgoubi FIT procedure to find the closed orbit (**kek_radiaFFA_fit.dat**).
+A more efficient method uses the Zgoubi FIT procedure to find the closed orbit (**kek_radiaFFA_fit.dat**).
 
-The file **kek_radialfFA_singlepass.dat** runs through the cell one time and outputs the coordinates at each integration step to zgoubi.plt. The orbit can then by viewed using *plotPlt_singlepass.ipynb*.
+The file **kek_radialfFA_singlepass.dat** runs through the cell one time and outputs the coordinates at each integration step to zgoubi.plt. The orbit can then by viewed using *plotPlt_singlepass.ipynb*. The trajectory can be seen in lab frame cartesian coordinates by running *plotPlt_labframe.py*.
 
 Finally, run *kek_radialFFA_co.py* to get PyZgoubi to find closed orbits across the momentum range. The orbits, stored in a zgoubi.plt file at each momentum, can be viewed in *plotPlt_singlepass.ipynb*.
 
