@@ -74,7 +74,7 @@ The LA PSR is a \SI{797}{MeV} proton storage ring with
 \begin{frame}
 The integration step is a very important parameter for ray tracing.
 \begin{itemize}
-\item Go into exercise 0 and open the zgoubi input file, zgoubi.dat.
+\item Go into Ex-0-FirstSteps and open the zgoubi input file, zgoubi.dat.
 \item OBJET5 is used for tune calculations.
 \item 'SCALING' keyword sets sextupoles fields to zero.
 \item The lattice proceeds SCALING until you reach the FIT2 keyword.
@@ -137,13 +137,64 @@ MULTIPOL 60  5 2 1
 \end{minipage}
 \end{frame}
 
+\section{1:\,Chromaticity scan}
+\begin{frame}
+\frametitle{1-Chromaticity scan}
+This file executes a chromaticity scan to match experimental data.\\
+Open the zgoubi.dat file in the folder Ex-2-Chrom.\\
+At line 102 there is a routine for finding the closed orbit:
+\tiny
 
-\section{1:\,Exploring the Optics}
+ 'FIT2'
+2  save
+
+1 30 0 [-1.,+1.]
+
+1 31 0 [-100.,+100.]
+
+2  1.D-11  9999
+
+3.1  1  2  \#End 0. 1. 0   ! Yf = Yi
+
+3.1  1  3  \#End 0. 1. 0   ! Tf = Ti
+
+\normalsize
+After this routine executes, the MATRIX command is called which calculates the tunes.
+\end{frame}
+\begin{frame}
+The chromaticity scan is done using REBELOTE (it means do it again). \\
+The settings it inputs mean that it will go through the lattice 4 times and change OBJET 35 (1+$\delta_p$) to the values listed after\\
+\tiny
+ 'REBELOTE'
+
+4 1.1 0 1
+
+1
+
+OBJET 35  1.001  0.999  1.0001  0.9999
+
+\normalsize
+How do the tunes compare to the experimental data?\\
+\begin{center}
+\begin{tabular}{ccc}
+$\delta$  &$\nu_x$  &$\nu_y$\\
+\hline
+0		  &2.2540596&2.2499258\\
+$10^{-3}$ &2.2529848&2.2486430\\
+$-10^{-3}$&2.2551372&2.2512124\\
+$10^{-4}$ &2.2539520&2.2497974\\
+$-10^{-4}$&2.2541673&2.2500543\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+
+
+\section{2:\,Exploring the Optics}
 
 \begin{frame}
-\frametitle{1:\,Exploring the Optics}
-The reported 
-In the folder labeled TWISS, there is a zgoubi.dat file made to represent the Los Alamos PSR \cite{AD1}.\\
+\frametitle{2:\,Exploring the Optics}
+In the folder labeled Ex-1-Twiss, there is a zgoubi.dat file made to represent the Los Alamos PSR \cite{AD1}.\\
 This file is setup to calculate the Twiss and other parameters, like the tune and phase.\\ 
 Execute zgoubi\\
 What tunes did you get?\\
@@ -172,59 +223,7 @@ $\beta$ functions are also available.
 For this lattice, $\rm \beta_{x,max}=11.68$, $\rm \beta_{x,max}=3.72$, $\rm \beta_{x,max}=12.44$, $\rm \beta_{x,max}=3.81$
 \end{frame}
 
-
-\section{2:\,Chromaticity scan}
-\begin{frame}
-\frametitle{2-Chromaticity scan}
-This file executes a chromaticity scan to match experimental data.\\
-Open the zgoubi.dat file in the folder 'Chromaticity Scan.'\\
-At line 102 there is a routine for finding the closed orbit:
-\tiny
-
- 'FIT2'
-2  save
-
-1 30 0 [-1.,+1.]
-
-1 31 0 [-100.,+100.]
-
-2  1.D-11  9999
-
-3.1  1  2  \#End 0. 1. 0   ! Yf = Yi
-
-3.1  1  3  \#End 0. 1. 0   ! Tf = Ti
-
-\normalsize
-After this routine executes, the MATRIX command is called which calculates the tunes:
-\end{frame}
-\begin{frame}
-The chromaticity scan is done using REBELOTE (it means do it again). \\
-The settings it inputs mean that it will go through the lattice 4 times and change OBJET 35 (1+$\delta_p$) to the values listed after\\
-\tiny
- 'REBELOTE'
-
-4 1.1 0 1
-
-1
-
-OBJET 35  1.001  0.999  1.0001  0.9999
-
-\normalsize
-How do the tunes compare to the experimental data?\\
-
-\begin{tabular}{ccc}
-$\delta$  &$\nu_x$  &$\nu_y$\\
-\hline
-0		  &2.2540596&2.2499258\\
-$10^{-3}$ &2.2529848&2.2486430\\
-$-10^{-3}$&2.2551372&2.2512124\\
-$10^{-4}$ &2.2539520&2.2497974\\
-$-10^{-4}$&2.2541673&2.2500543\\
-\end{tabular}
-\end{frame}
-
-
-\section{3:\,Spin tracking}
+\section{3-Spin tracking}
 \begin{frame}
 \frametitle{3-Spin Tracking}
 \begin{minipage}{1.0\textwidth}
@@ -243,7 +242,7 @@ $\rm G\gamma=NP+\nu_y$
 \vspace{-0.2em}
 where N=0, 1,... and P is the periodicity. A particles final vertical component after crossing a resonance can be described with the Froissart-Stora formula:
 \begin{equation}
-\frac{P_f}{P_i}=2\exp\bigg(-\frac{\pi|\epsilon_k|}{2\alpha}\bigg)
+\frac{P_f}{P_i}=2\exp\bigg(-\frac{\pi|\epsilon_k|}{2\alpha}\bigg)-1
 \end{equation}
 where $\rm\epsilon_k$ is the resonance strength and $\rm \alpha=(G\Delta E)/(2\pi M_o)$ is the crossing speed.\\
 So let's track a particle through the $G\gamma=0+\nu_y$ resonance.
@@ -274,20 +273,6 @@ So let's track a particle through the $G\gamma=0+\nu_y$ resonance.
 %\small
 %\end{frame}
 \begin{frame}
-\frametitle{}
-%Run the input file in your terminal using:\\
-%python PSR.py\\
-%\vspace{1em}
-%This portion of the file is used to get $\rm\nu_y$ for calculating $\rm G\gamma_R$\\
-%\vspace{1em}
-%The results $\rm\nu_y=2.24992584$ were printed to your shell, good.\\
-%\vspace{1em}
-%Open the file created named matrix.res and compare it to zgoubi.dat from the TWISS exercise.\\
-%\vspace{1em}
-%Parameters used are the same but the header of matrix.res was generated using python based off the parameters defined on the previous slide.
-
-\end{frame}
-\begin{frame}
 \frametitle{What we need to calculate}
 
 \begin{itemize}
@@ -306,6 +291,28 @@ So let's track a particle through the $G\gamma=0+\nu_y$ resonance.
 %These parameters are calculated from lines \#126-167.\\
 %Put a \# in front of line 126 and run PSR.py again to see the calculated values.
 \end{frame}
+\begin{frame}
+\frametitle{Notes on your input file}
+Magnet strengths have been scaled to a corresponding $B\rho$=1,000~kG cm.
+\begin{itemize}
+\item Scaling values $B\rho/1000$
+\end{itemize}
+SPNTRK sets the spin direction and tells zgoubi to track it.\\
+CAVITE is for RF cavities and is in units of Volts.\\
+REBELOTE tracks for $N_{turns}$-1.\\
+
+%Run the input file in your terminal using:\\
+%python PSR.py\\
+%\vspace{1em}
+%This portion of the file is used to get $\rm\nu_y$ for calculating $\rm G\gamma_R$\\
+%\vspace{1em}
+%The results $\rm\nu_y=2.24992584$ were printed to your shell, good.\\
+%\vspace{1em}
+%Open the file created named matrix.res and compare it to zgoubi.dat from the TWISS exercise.\\
+%\vspace{1em}
+%Parameters used are the same but the header of matrix.res was generated using python based off the parameters defined on the previous slide.
+
+\end{frame}
 
 \begin{frame}
 \frametitle{Spin tracking}
@@ -316,7 +323,7 @@ We will track 3 particles with 3 different vertical betatron amplitudes:
 \end{itemize}
 Tracking particles with RF voltage $\rm V_{cav}=15~kV$\\
 
-Put a \# in front of line 169 and run PSR.py again to see the calculated values.
+%Put a \# in front of line 169 and run PSR.py again to see the calculated values.
 
 \end{frame}
 
