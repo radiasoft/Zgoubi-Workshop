@@ -325,9 +325,19 @@ We will track 3 particles with 3 different vertical betatron amplitudes:
 Tracking particles with RF voltage $\rm V_{cav}=15~kV$\\
 
 Intrinsic resonance strength:
+\small{
 \begin{equation}
-\epsilon_k=\frac{1+G\gamma}{2\pi}\sqrt{\frac{\varepsilon_k}{\pi\gamma}}\int\frac{\frac{dB_z}{dx}}{B\rho}\sqrt{\beta_z(s)}cos(\nu_z\phi_z(s)+\xi)e^{iK\theta}ds
+\epsilon_k=\frac{1+G\gamma}{2\pi}\sqrt{\frac{\pmb{\varepsilon_N}}{\pi\gamma}}\int\frac{\frac{dB_z}{dx}}{B\rho}\sqrt{\beta_z(s)}cos(\nu_z\phi_z(s)+\xi)e^{iK\theta}ds
 \end{equation}
+}
+\normalsize
+and
+Froissart-Stora formula:
+\small{
+\begin{equation}
+\frac{P_f}{P_i}=2\exp\bigg(-\frac{\pi|\epsilon_k|}{2\alpha}\bigg)-1
+\end{equation}
+}
 %Put a \# in front of line 169 and run PSR.py again to see the calculated values.
 
 \end{frame}
