@@ -122,7 +122,6 @@ for D in D_a:
 	
 	co_l.append(list(co1))
 
-
 reb.set(NPASS=0)
 ffagex.full_tracking(True)
 
@@ -173,15 +172,16 @@ for co, D in zip(co_l, D_a):
 	ffagex.replace(matrix,reb)
 	
 	#choose set of amplitudes values at which to test for survival over npass turns
-	nemit = 5
-	npass = 12*200
+	nemit = 8
+	npass = cells*200
 	emit_list_h = numpy.linspace(1e-4, 2e-3,nemit)
 	emit_list_v = [0]*nemit
-
 	#call the DA function in PyZgoubi
+	#call the DA function in PyZgoubi
+
 	scanda_data = scan_dynamic_aperture(ffagex, emit_list_h, emit_list_v, co, npass, D_mom=D, beta_gamma_input = 1, ellipse_coords = 1, coord_pick = 0, twiss_parameters = twissparam, plot_data = False)
 	
-	print "scan_dynamic_aperture output ",scanda_data
+	#print "scan_dynamic_aperture output ",scanda_data
 	
 	#the DA is defined as the largest stable amplitude before loss
 	if scanda_data[0][0] != None:
@@ -195,9 +195,19 @@ for co, D in zip(co_l, D_a):
 		
 	fft_tune_scan_h = [s[0] for s in scanda_data[1]]
 	fft_tune_scan_v = [s[1] for s in scanda_data[1]]
-	print "tune (H) vs amplitude ",fft_tune_scan_h
-	print "tune (V) vs amplitude ",fft_tune_scan_v
-	
+	#print "tune (H) vs amplitude ",fft_tune_scan_h
+	#print "tune (V) vs amplitude ",fft_tune_scan_v
+    
+    
+	ft = open("tune_amplitude.txt","w")
+	print "amp, tune_h, tune_v"      
+	print >> ft,"amp, tune_h, tune_v" 
+	print "pi mm mrad, -  , -  "    
+	for amp, th,tv in zip(emit_stable_h,fft_tune_scan_h,fft_tune_scan_v):
+		print '%5.3f %5.3f %5.3f'%(1e6*amp, th, tv) 
+		print >>ft, amp, th, tv     
+	ft.close()
+    
 	plot_tune_vs_amp = False
 	if plot_tune_vs_amp:
 		plt.plot(emit_stable_h, fft_tune_scan_h,'ko-')
@@ -209,6 +219,10 @@ for co, D in zip(co_l, D_a):
 	
 	i_D = i_D + 1
 	
+
+
+    
+   
 
 	
 			
