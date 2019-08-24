@@ -1,0 +1,1 @@
+latex microProbe_exercise.tex ; latex microProbe_exercise.tex ;dvipdf microProbe_exercise.dvi 
