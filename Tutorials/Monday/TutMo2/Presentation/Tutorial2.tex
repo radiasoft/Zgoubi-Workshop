@@ -141,7 +141,7 @@ MULTIPOL 60  5 2 1
 \begin{frame}
 \frametitle{1-Chromaticity scan}
 This file executes a chromaticity scan to match experimental data.\\
-Open the zgoubi.dat file in the folder Ex-2-Chrom.\\
+Open the zgoubi.dat file in the folder Ex-1-Chrom.\\
 At line 102 there is a routine for finding the closed orbit:
 \tiny
 
@@ -194,7 +194,7 @@ $-10^{-4}$&2.2541673&2.2500543\\
 
 \begin{frame}
 \frametitle{2:\,Exploring the Optics}
-In the folder labeled Ex-1-Twiss, there is a zgoubi.dat file made to represent the Los Alamos PSR \cite{AD1}.\\
+In the folder labeled Ex-2-Twiss, there is a zgoubi.dat file made to represent the Los Alamos PSR \cite{AD1}.\\
 This file is setup to calculate the Twiss and other parameters, like the tune and phase.\\ 
 Execute zgoubi\\
 What tunes did you get?\\
@@ -220,7 +220,7 @@ $\beta$ functions are also available.
 \begin{figure}
 \includegraphics[width=1.0\textwidth]{beta.eps}
 \end{figure}
-For this lattice, $\rm \beta_{x,max}=11.68$, $\rm \beta_{x,max}=3.72$, $\rm \beta_{x,max}=12.44$, $\rm \beta_{x,max}=3.81$
+For this lattice, $\rm \beta_{x,max}=11.68$, $\rm \beta_{x,min}=3.72$, $\rm \beta_{y,max}=12.44$, $\rm \beta_{x,min}=3.81$
 \end{frame}
 
 \section{3-Spin tracking}
@@ -234,13 +234,13 @@ As calculated in "1-Exploring the Optics", the vertical betatron tunes  for the 
 $\rm\nu_y=2.2499$
 \end{center}
 \vspace{-0.2em}
-Vertical intrinsic resonances occur when a particles betatron motion is in phase with the spin rotation or:
+Vertical intrinsic resonances occur when a particle's betatron motion is in phase with the spin rotation or:
 \vspace{-0.2em}
 \begin{center}
 $\rm G\gamma=NP+\nu_y$
 \end{center}
 \vspace{-0.2em}
-where N=0, 1,... and P is the periodicity. A particles final vertical component after crossing a resonance can be described with the Froissart-Stora formula:
+where N=0, 1,... and P is the periodicity. A particle's final vertical component after crossing a resonance can be described with the Froissart-Stora formula:
 \begin{equation}
 \frac{P_f}{P_i}=2\exp\bigg(-\frac{\pi|\epsilon_k|}{2\alpha}\bigg)-1
 \end{equation}
@@ -288,7 +288,7 @@ So let's track a particle through the $G\gamma=0+\nu_y$ resonance.
 \item Used to determine the scaling values at the start and end of the simulation.
 \end{itemize}
 \end{itemize}
-Run BRHO_calc.py if you want the calculations automated.
+Run BRHO\_calc.py if you want the calculations automated.
 %These parameters are calculated from lines \#126-167.\\
 %Put a \# in front of line 126 and run PSR.py again to see the calculated values.
 \end{frame}

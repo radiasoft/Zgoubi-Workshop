@@ -34,3 +34,17 @@ After running Zgoubi, verify that it exited normally.
 
 What new files do you see? What are the contents of those new files?
 
+The file `zgoubi.res` contains the principal results; it also contains,
+at the beginning, a copy of the Zgoubi input. Search in that file for
+"Betatron tunes", and observe the variation with step size.
+
+The file `zgoubi.MATRIX.out` contains the computed matrix and associated
+results. Which two columns contain the tunes?
+
+Now run the script `plotTunesVStep.py`:
+```
+python plotTunesVStep.py
+```
+Is it reading the correct columns
+from `zgoubi.MATRIX.out`? You should see two new `png` files. What do they
+tell you?

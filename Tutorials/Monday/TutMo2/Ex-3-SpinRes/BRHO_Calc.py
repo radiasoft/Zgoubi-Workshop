@@ -64,7 +64,7 @@ def main(argv):
             BRHO_f   =uoc*np.sqrt(Energy_f**2-MASS**2)/Q
             Scaling_factor=BRHO_0/10**3
             print '\nTo cross the G_gamma_R=%.2f resonance, the particles will be tracked between G_gamma_0=%.2f to G_gamma_f=%.2f\n'%(G_gamma_R,G_gamma_0,G_gamma_f)
-            print 'Parameters for zgoubi\n%8s=%.4f\n%8s=%.4f\n%8s=%.2f\n%8s=%.2f'%('_BRHO0',BRHO_0,'_BRHOf',BRHO_f,'_CavV',CavV,'_NTurns',NTurns)
+            print 'Parameters for zgoubi\n%8s = %.4f\n%8s = %.4f\n%8s = %.2f\n%8s = %.2f'%('_BRHO0',BRHO_0,'_BRHOf',BRHO_f,'_CavV',CavV,'_NTurns',NTurns)
 
         else:
             print "Please enter the three required fields."
