@@ -173,7 +173,7 @@ MULTIPOL
 2
 %.8f %.8f
 1 %i
-"""%(BRHO_0/10**3,BRHO_f/10**3,NTurns,BRHO_0/10**3,(1+NTurns*del_E/1000)*BRHO_f/10**3,NTurns))
+"""%(BRHO_0/10**3,BRHO_f/10**3,NTurns,BRHO_0/10**3,BRHO_f/10**3,NTurns))
 
 PSR = core.Line('PSR')
 PSR.add(OPTIONS)
@@ -198,8 +198,8 @@ PSR.add(core.END())
 #print PSR
 r=PSR.run()
 #r.save_b_fai('b_zgoubi.fai')
-r.save_fai('pyzgoubi.fai')
-r.save_res('pyzgoubi.res')
-r.save_res('pyzgoubi.dat')
+r.save_fai('zgoubi.fai')
+r.save_res('zgoubi.res')
+r.save_res('zgoubi.dat')
 
 #'''
