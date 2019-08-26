@@ -1,19 +1,19 @@
 Los Alamos Proton Storage Ring --- compute linear lattice properties
 
- 'OBJET'                                                                                                      1
+ 'OBJET'
 4869.14813176
 5
 1.0000000000e-03 1.0000000000e-03 1.0000000000e-03 1.0000000000e-03 0.0000000000e+00 1.0000000000e-04
 0.0000000000e+00 0.0000000000e+00 0.0000000000e+00 0.0000000000e+00 0.0000000000e+00 1.0000000000e+00
  
- 'PARTICUL'                                                                                                   2
+ 'PARTICUL'
 PROTON
  
 !=== Los Alamos PSR Lattice ===
 !--- cell 0 ---
- 'DRIFT'                                                                                                      4
+ 'DRIFT'
 228.646
- 'MULTIPOL'  QUAD  QD                                                                                         5
+ 'MULTIPOL'  QUAD  QD
 0  .Quad
 50.000  10.000  0. -2.68  0.  0.  0.  0.  0.  0.  0.  0.
  0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -23,11 +23,11 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                      6
+ 'DRIFT'
 45.000
- 'CHANGREF'                                                                                                   7
+ 'CHANGREF'
 0.  0.  -18.
- 'BEND'     SBEND  B                                                                                          8
+ 'BEND'     SBEND  B
 0  .Bend
 250.774920140843  0.   12.
 0. 0. 0. ! bend-fringe
@@ -36,11 +36,11 @@ PROTON
 4  0.2401  1.8639  -0.5572  0.3904  0.  0.
 0.5  ! dS-bend / cm
 1  0.  0.  0.
- 'CHANGREF'                                                                                                   9
+ 'CHANGREF'
 0.  0.  -18.
- 'DRIFT'                                                                                                     10
+ 'DRIFT'
 45.000
- 'MULTIPOL'  QUAD  QF                                                                                        11
+ 'MULTIPOL'  QUAD  QF
 0  .Quad
 50.000  10.000  0.  1.95  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -50,13 +50,13 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1 0. 0. 0.
- 'DRIFT'                                                                                                     12
+ 'DRIFT'
 228.646
  
 !--- cell T ---
- 'DRIFT'                                                                                                     13
+ 'DRIFT'
 228.646
- 'MULTIPOL'  QUAD  QD                                                                                        14
+ 'MULTIPOL'  QUAD  QD
 0  .Quad
 50.000  10.000  0. -2.68  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -66,11 +66,11 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     15
+ 'DRIFT'
 45.000
- 'CHANGREF'                                                                                                  16
+ 'CHANGREF'
 0.  0.  -18.
- 'BEND'     SBEND  B                                                                                         17
+ 'BEND'     SBEND  B
 0  .Bend
 250.774920140843  0.   12.
 0. 0. 0. ! bend-fringe
@@ -79,11 +79,11 @@ PROTON
 4  0.2401  1.8639  -0.5572  0.3904  0.  0.
 0.5  ! dS-bend / cm
 1  0.  0.  0.
- 'CHANGREF'                                                                                                  18
+ 'CHANGREF'
 0.  0.  -18.
- 'DRIFT'                                                                                                     19
+ 'DRIFT'
 45.000
- 'MULTIPOL'  QUAD  QF                                                                                        20
+ 'MULTIPOL'  QUAD  QF
 0  .Quad
 50.000  10.000  0.  1.95  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -93,9 +93,9 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1 0. 0. 0.
- 'DRIFT'                                                                                                     21
+ 'DRIFT'
 30.000
- 'MULTIPOL'  SEXT  SF                                                                                        22
+ 'MULTIPOL'  SEXT  SF
 0  .Sext
 50.000  10.000  0.  0.  0.16  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  0.  1.00  0.  0.  0.  0.  0.  0.
@@ -105,13 +105,13 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     23
+ 'DRIFT'
 148.646
  
 !--- cell L ---
- 'DRIFT'                                                                                                     24
+ 'DRIFT'
 148.646
- 'MULTIPOL'  SEXT  SD                                                                                        25
+ 'MULTIPOL'  SEXT  SD
 0  .Sext
 50.000  10.000  0.  0. -0.24  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  0.  1.00  0.  0.  0.  0.  0.  0.
@@ -121,9 +121,9 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     26
+ 'DRIFT'
 30.000
- 'MULTIPOL'  QUAD  QD                                                                                        27
+ 'MULTIPOL'  QUAD  QD
 0  .Quad
 50.000  10.000  0. -2.68  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -133,11 +133,11 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     28
+ 'DRIFT'
 45.000
- 'CHANGREF'                                                                                                  29
+ 'CHANGREF'
 0.  0.  -18.
- 'BEND'     SBEND  B                                                                                         30
+ 'BEND'     SBEND  B
 0  .Bend
 250.774920140843  0.   12.
 0. 0. 0. ! bend-fringe
@@ -146,11 +146,11 @@ PROTON
 4  0.2401  1.8639  -0.5572  0.3904  0.  0.
 0.5  ! dS-bend / cm
 1  0.  0.  0.
- 'CHANGREF'                                                                                                  31
+ 'CHANGREF'
 0.  0.  -18.
- 'DRIFT'                                                                                                     32
+ 'DRIFT'
 45.000
- 'MULTIPOL'  QUAD  QF                                                                                        33
+ 'MULTIPOL'  QUAD  QF
 0  .Quad
 50.000  10.000  0.  1.95  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -160,13 +160,13 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1 0. 0. 0.
- 'DRIFT'                                                                                                     34
+ 'DRIFT'
 228.646
  
 !--- cell 0 ---
- 'DRIFT'                                                                                                     35
+ 'DRIFT'
 228.646
- 'MULTIPOL'  QUAD  QD                                                                                        36
+ 'MULTIPOL'  QUAD  QD
 0  .Quad
 50.000  10.000  0. -2.68  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -176,11 +176,11 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     37
+ 'DRIFT'
 45.000
- 'CHANGREF'                                                                                                  38
+ 'CHANGREF'
 0.  0.  -18.
- 'BEND'     SBEND  B                                                                                         39
+ 'BEND'     SBEND  B
 0  .Bend
 250.774920140843  0.   12.
 0. 0. 0. ! bend-fringe
@@ -189,11 +189,11 @@ PROTON
 4  0.2401  1.8639  -0.5572  0.3904  0.  0.
 0.5  ! dS-bend / cm
 1  0.  0.  0.
- 'CHANGREF'                                                                                                  40
+ 'CHANGREF'
 0.  0.  -18.
- 'DRIFT'                                                                                                     41
+ 'DRIFT'
 45.000
- 'MULTIPOL'  QUAD  QF                                                                                        42
+ 'MULTIPOL'  QUAD  QF
 0  .Quad
 50.000  10.000  0.  1.95  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -203,13 +203,13 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1 0. 0. 0.
- 'DRIFT'                                                                                                     43
+ 'DRIFT'
 228.646
  
 !--- cell 0 ---
- 'DRIFT'                                                                                                     44
+ 'DRIFT'
 228.646
- 'MULTIPOL'  QUAD  QD                                                                                        45
+ 'MULTIPOL'  QUAD  QD
 0  .Quad
 50.000  10.000  0. -2.68  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -219,11 +219,11 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     46
+ 'DRIFT'
 45.000
- 'CHANGREF'                                                                                                  47
+ 'CHANGREF'
 0.  0.  -18.
- 'BEND'     SBEND  B                                                                                         48
+ 'BEND'     SBEND  B
 0  .Bend
 250.774920140843  0.   12.
 0. 0. 0. ! bend-fringe
@@ -232,11 +232,11 @@ PROTON
 4  0.2401  1.8639  -0.5572  0.3904  0.  0.
 0.5  ! dS-bend / cm
 1  0.  0.  0.
- 'CHANGREF'                                                                                                  49
+ 'CHANGREF'
 0.  0.  -18.
- 'DRIFT'                                                                                                     50
+ 'DRIFT'
 45.000
- 'MULTIPOL'  QUAD  QF                                                                                        51
+ 'MULTIPOL'  QUAD  QF
 0  .Quad
 50.000  10.000  0.  1.95  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -246,13 +246,13 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1 0. 0. 0.
- 'DRIFT'                                                                                                     52
+ 'DRIFT'
 228.646
  
 !--- cell 0 ---
- 'DRIFT'                                                                                                     53
+ 'DRIFT'
 228.646
- 'MULTIPOL'  QUAD  QD                                                                                        54
+ 'MULTIPOL'  QUAD  QD
 0  .Quad
 50.000  10.000  0. -2.68  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -262,11 +262,11 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     55
+ 'DRIFT'
 45.000
- 'CHANGREF'                                                                                                  56
+ 'CHANGREF'
 0.  0.  -18.
- 'BEND'     SBEND  B                                                                                         57
+ 'BEND'     SBEND  B
 0  .Bend
 250.774920140843  0.   12.
 0. 0. 0. ! bend-fringe
@@ -275,11 +275,11 @@ PROTON
 4  0.2401  1.8639  -0.5572  0.3904  0.  0.
 0.5  ! dS-bend / cm
 1  0.  0.  0.
- 'CHANGREF'                                                                                                  58
+ 'CHANGREF'
 0.  0.  -18.
- 'DRIFT'                                                                                                     59
+ 'DRIFT'
 45.000
- 'MULTIPOL'  QUAD  QF                                                                                        60
+ 'MULTIPOL'  QUAD  QF
 0  .Quad
 50.000  10.000  0.  1.95  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -289,13 +289,13 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1 0. 0. 0.
- 'DRIFT'                                                                                                     61
+ 'DRIFT'
 228.646
  
 !--- cell T ---
- 'DRIFT'                                                                                                     62
+ 'DRIFT'
 228.646
- 'MULTIPOL'  QUAD  QD                                                                                        63
+ 'MULTIPOL'  QUAD  QD
 0  .Quad
 50.000  10.000  0. -2.68  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -305,11 +305,11 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     64
+ 'DRIFT'
 45.000
- 'CHANGREF'                                                                                                  65
+ 'CHANGREF'
 0.  0.  -18.
- 'BEND'     SBEND  B                                                                                         66
+ 'BEND'     SBEND  B
 0  .Bend
 250.774920140843  0.   12.
 0. 0. 0. ! bend-fringe
@@ -318,11 +318,11 @@ PROTON
 4  0.2401  1.8639  -0.5572  0.3904  0.  0.
 0.5  ! dS-bend / cm
 1  0.  0.  0.
- 'CHANGREF'                                                                                                  67
+ 'CHANGREF'
 0.  0.  -18.
- 'DRIFT'                                                                                                     68
+ 'DRIFT'
 45.000
- 'MULTIPOL'  QUAD  QF                                                                                        69
+ 'MULTIPOL'  QUAD  QF
 0  .Quad
 50.000  10.000  0.  1.95  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -332,9 +332,9 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1 0. 0. 0.
- 'DRIFT'                                                                                                     70
+ 'DRIFT'
 30.000
- 'MULTIPOL'  SEXT  SF                                                                                        71
+ 'MULTIPOL'  SEXT  SF
 0  .Sext
 50.000  10.000  0.  0.  0.16  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  0.  1.00  0.  0.  0.  0.  0.  0.
@@ -344,13 +344,13 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     72
+ 'DRIFT'
 148.646
  
 !--- cell L ---
- 'DRIFT'                                                                                                     73
+ 'DRIFT'
 148.646
- 'MULTIPOL'  SEXT  SD                                                                                        74
+ 'MULTIPOL'  SEXT  SD
 0  .Sext
 50.000  10.000  0.  0. -0.24  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  0.  1.00  0.  0.  0.  0.  0.  0.
@@ -360,9 +360,9 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     75
+ 'DRIFT'
 30.000
- 'MULTIPOL'  QUAD  QD                                                                                        76
+ 'MULTIPOL'  QUAD  QD
 0  .Quad
 50.000  10.000  0. -2.68  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -372,11 +372,11 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     77
+ 'DRIFT'
 45.000
- 'CHANGREF'                                                                                                  78
+ 'CHANGREF'
 0.  0.  -18.
- 'BEND'     SBEND  B                                                                                         79
+ 'BEND'     SBEND  B
 0  .Bend
 250.774920140843  0.   12.
 0. 0. 0. ! bend-fringe
@@ -385,11 +385,11 @@ PROTON
 4  0.2401  1.8639  -0.5572  0.3904  0.  0.
 0.5  ! dS-bend / cm
 1  0.  0.  0.
- 'CHANGREF'                                                                                                  80
+ 'CHANGREF'
 0.  0.  -18.
- 'DRIFT'                                                                                                     81
+ 'DRIFT'
 45.000
- 'MULTIPOL'  QUAD  QF                                                                                        82
+ 'MULTIPOL'  QUAD  QF
 0  .Quad
 50.000  10.000  0.  1.95  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -399,13 +399,13 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1 0. 0. 0.
- 'DRIFT'                                                                                                     83
+ 'DRIFT'
 228.646
  
 !--- cell 0 ---
- 'DRIFT'                                                                                                     84
+ 'DRIFT'
 228.646
- 'MULTIPOL'  QUAD  QD                                                                                        85
+ 'MULTIPOL'  QUAD  QD
 0  .Quad
 50.000  10.000  0. -2.68  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -415,11 +415,11 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     86
+ 'DRIFT'
 45.000
- 'CHANGREF'                                                                                                  87
+ 'CHANGREF'
 0.  0.  -18.
- 'BEND'     SBEND  B                                                                                         88
+ 'BEND'     SBEND  B
 0  .Bend
 250.774920140843  0.   12.
 0. 0. 0. ! bend-fringe
@@ -428,11 +428,11 @@ PROTON
 4  0.2401  1.8639  -0.5572  0.3904  0.  0.
 0.5  ! dS-bend / cm
 1  0.  0.  0.
- 'CHANGREF'                                                                                                  89
+ 'CHANGREF'
 0.  0.  -18.
- 'DRIFT'                                                                                                     90
+ 'DRIFT'
 45.000
- 'MULTIPOL'  QUAD  QF                                                                                        91
+ 'MULTIPOL'  QUAD  QF
 0  .Quad
 50.000  10.000  0.  1.95  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -442,13 +442,13 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1 0. 0. 0.
- 'DRIFT'                                                                                                     92
+ 'DRIFT'
 228.646
  
 !--- cell 0 ---
- 'DRIFT'                                                                                                     93
+ 'DRIFT'
 228.646
- 'MULTIPOL'  QUAD  QD                                                                                        94
+ 'MULTIPOL'  QUAD  QD
 0  .Quad
 50.000  10.000  0. -2.68  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -458,11 +458,11 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1  0.  0.  0.
- 'DRIFT'                                                                                                     95
+ 'DRIFT'
 45.000
- 'CHANGREF'                                                                                                  96
+ 'CHANGREF'
 0.  0.  -18.
- 'BEND'     SBEND  B                                                                                         97
+ 'BEND'     SBEND  B
 0  .Bend
 250.774920140843  0.   12.
 0. 0. 0. ! bend-fringe
@@ -471,11 +471,11 @@ PROTON
 4  0.2401  1.8639  -0.5572  0.3904  0.  0.
 0.5  ! dS-bend / cm
 1  0.  0.  0.
- 'CHANGREF'                                                                                                  98
+ 'CHANGREF'
 0.  0.  -18.
- 'DRIFT'                                                                                                     99
+ 'DRIFT'
 45.000
- 'MULTIPOL'  QUAD  QF                                                                                       100
+ 'MULTIPOL'  QUAD  QF
 0  .Quad
 50.000  10.000  0.  1.95  0.  0.  0.  0.  0.  0.  0.  0.
 0.000   0.00   0.  1.00  0.  0.  0.  0.  0.  0.  0.
@@ -485,15 +485,16 @@ PROTON
 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
 2.0  ! cm
 1 0. 0. 0.
- 'DRIFT'                                                                                                    101
+ 'DRIFT'
 228.646
 !======== End Lattice =========
 
- 'FAISTORE'                                                                                                 101
+ 'FAISTORE'
 zgoubi.fai
 1
  
- 'TWISS'                                                                                                    102
+ 'TWISS'
 2 1.0 1.0
  
- 'END'                                                                                                      103
+ 'END'
+
