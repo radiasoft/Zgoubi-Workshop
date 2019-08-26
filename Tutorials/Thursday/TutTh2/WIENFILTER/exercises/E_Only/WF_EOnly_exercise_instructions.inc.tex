@@ -1,0 +1,164 @@
+
+\thispagestyle{empty}
+
+\begin{minipage}{1.\linewidth}
+\bf
+  \flushright{F. M\'eot}
+\vspace{-2ex}
+  
+  \flushright{BNL C-AD}
+\vspace{-2ex}
+  
+  \flushright{Zgoubi 2019 Workshop, Boulder, CO}
+\vspace{-2ex}
+  
+\flushright{24-29 Aug. 2019} 
+\end{minipage}
+
+
+\vspace{5ex}
+
+\centerline{\LARGE \bf
+  An Introduction to  ``WIENFILTER'' 
+}
+
+~
+
+\centerline{\LARGE \bf
+Exercise 1: A Parallel Plate Electrostatic Deflector
+}
+
+
+\section*{Recommended readings}
+
+\nin - Section  "3.1 - Wien filter"  in 
+``Generalization of the Zgoubi method for ray-tracing to include electric fields'', \\
+../../documentation/electrificationOfZgoubi.pdf
+
+\smallskip
+\nin - Zgoubi Users' Guide, regarding the keywords used in the exercise (WIENFILTER, OBJET/KOPT=2, OPTIONS/CONSTY, SEPARA in question 6/, etc.). Hint: use the index (last 3 pages of the Guide) to locate the related sections in Part~A and Part~B. 
+
+
+\smallskip
+\nin - During the exercise, it is recommended to keep at hand 2 copies of Zgoubi Users' Guide (ZUG in the following),
+with one copy maintained  at the Index (last 3 pages of the document).
+
+
+\section*{Keywords we play with in this exercise}
+
+\texttt{WIENFILTER} is the optical element used  (pp.~168 and 306 in the Users' Guide), with B=0  so that it operates as a simple parallel plate electrostatic deflector.
+
+\nin Note: \texttt{ELMIR, ELMIRC} and even \texttt{ELMULT} or \texttt{EBMULT}  could be used as well, they would be able to provide this dipole $ \vec E$ field simulations (see "Optical elements versus keywords'' in the Users' Guide).
+
+
+\section*{Working hypotheses}
+
+\nib The Wien filter length is $ L$. Take $ \vec E =\vec E_Y \parallel \vec Y$.
+Take  hard-edge E-field model  so to allow tight comparison with theory\footnote{G.\,Leleux, INSTN Saclay, 1978 (unpublished)}.
+
+\nib In order to check numerical outcomes, the following can be used:
+
+\begin{minipage}{.69\linewidth}
+\nin - The expected trajectory is a catenary with equation
+%  
+$$ Y_{th}(X) = \frac{E_i}{qE_Y} \left( \cosh \dfrac{qE_Y X}{\beta_i E_i } -1 \right)$$
+with $E_i$  initial total energy, $c\beta_i$ initial velocity, $q$  particle charge
+
+~
+
+\nin -  Spin rotation: assume we manage to maintain $\vec E \perp \vec v$, so resulting in $\vec \beta = \vec \beta_X$ and
+$\beta = {\rm constant} , \forall X$ (no energy change as $\int \vec F \dot \vec v \, dt \equiv 0$)
+(zgoubi keyword CONST/OPTIONS allows that).
+Thus expected spin rotation over L  is (after Eq.\,2.1.3-4 in Zgoubi Users' Guide)
+$$ \theta_s = \gamma (a+\dfrac{1}{1+\gamma})\dfrac{\beta E_YL}{cB\rho}  $$
+
+\end{minipage} \hfill
+\begin{minipage}{.3\linewidth}
+  \includegraphics[width=0.75\linewidth]{wienF.eps}
+\end{minipage}
+
+
+\section*{ Numerical experience }
+
+
+\nin 1/ Let's  first walk through the fortran, see what happens when the execution pointer meets 'WIENFILTER'  in zgoubi.dat sequence...
+
+\begin{itemize}
+\item Open zgoubi\_main.f : it calls zgoubi. The rest of the it essentially manages the 'FIT' procedure.
+\item Open zgoubi.f 
+\begin{itemize}
+  \item find include/LSTKEY.H: take a look into it, spot WIENFILTER -~and all of zgoubi keywords! If you need to add a keyword, that's here
+  \item find 'CALL RWIENF', look into rwienf.f. What does it do?
+  \item it is followed by'CALL QUASEX'. 
+    Optical elements call either QUASEX, or AIMANT (check that statement, scrolling through zgoubi.f), what's the difference between the two? 
+  \item  Open quasex.f.   In there, find 'CALL CHXC'. What does it do? 
+  \begin{itemize}
+    \item open chxc.f
+    \begin{itemize}
+      \item find WIENF therein. Open wienfi.f, take a look to the various ``data initializations'' necessary prior to tracking
+      \end{itemize}
+    \item find 'CALL TRANSF' in quasex, open transf.f: it pushes the particles, one by one, through 'INTEGR'
+    \begin{itemize}
+      \item find 'CALL INTEGR', open integr.f: it pushes a particle, step by step, 
+        through WIENF (or any other element)
+      \item In integer.f look for 
+        (i) 'CALL CHAMC',
+          (ii) 'CALL CHAMK', 
+          (iii) 'CALL DEVTRA': 
+          Figure out what each does.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+\end{itemize}
+
+~
+
+\nin 2/ Set up a Wien filter sequence with $ E_Y=0.98$\,MV/m,  $ L=0.5$\,m.
+Consider an electron with 350\,keV energy\footnote{Data after E. Wang, see documentation in exercise 2}. 
+
+ Run that sequence and check (in zgoubi.fai) the final $Y(X\equiv L)$,
+  compare with $Y_{th}(0.5\,m)$  as per catenary equation above.
+
+~
+
+\nin 3/ Check the effect of step size:
+
+Use REBELOTE to perform a scan. Keyword and/or parameter numbering along zgoubi.dat sequence is needed for that, lookup ``numbering'' in ZUG Index.
+
+Get a scan of Y values for $ \Delta s = .001:10$\,cm.
+   Plot $(Y-Y_{th})/Y_{th}$ versus step size (can use gnuplot to plot data read from zgoubi.fai).
+
+   ~
+
+   \nin 4/
+   Force Y=0 across the Wien filter, by means of OPTIONS/CONSTY.
+
+   Check the rotation of an initial $\vec S \equiv \vec S_X$, at the downstream end of the condenser (X=L), compare to expected $\theta_s$. 
+
+Check convergence of result versus integration step size. 
+
+\medskip
+
+\nin Note: SPNPRT logs infos (in zgoubi.res) regarding spin coordinates and rotation.
+
+Adding a ``LABEL1''  MATRIX will produce the spin rotation matrix, providing OBJET is defined appropriately (3 times the same particles, with spin components initialized properly using SPNTRK).
+
+
+   ~
+
+   \nin 5/ Let's check the trajectory with SEPARA keyword in Zgoubi Users' Guide (SEPARA will not compute the spin rotation, it would have to be implemented in the code (someone volunteer to figure out~? === REWARD for making it work: 1 BOTTLE OF 'C\^OTE DE NUITS', VIN DE BOURGOGNE)).
+
+5.a - What is the difference in particle transport method by SEPARA, compared to WIENFILTER?
+
+5.b - Try it and compare with WIENFILTER outcomes in questions 2/.
+
+   ~
+
+   \nin 6/ Add fringe-fields.
+
+   6.a -  Plot the particle trajectory and the $E_Y$  field along the trajectory.
+   
+   6.b - Plot particle energy versus distance, conclude on the importance of fringe fields as to 6-D symplecticity. 
+
+
+  
