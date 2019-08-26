@@ -7,7 +7,8 @@
 * BRHO_calc.py
 
 ## Instructions
-In this exercise, we will track a particle through an intrinsic spin resonance and make comparison to the classic Froissart-Stora formula.
+In this exercise, we will track a particle through an intrinsic spin resonance and make comparison to the classic Froissart-Stora formula. For this we need will use `SPNTRK` (pp.&#160;87 and 286) and `CAVITE` (pp.&#160;110 and 212).
+
 This zgoubi input file is the same PSR lattice that you have seen previously. There are some variables that are left for you to calculate and fill in(CavV, NTurns, BRHO_0, BRHO_f). The input file will not execute properly until done so.
 
 Vertical intrinsic spin resonances occur when the frequency of spin precession is in phase with the vertical betatron motion. That is when:
