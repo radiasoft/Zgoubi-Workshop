@@ -1,0 +1,7 @@
+rm echoDir
+rm zgoubi.fai
+rm zgoubi.log
+rm zgoubi.OPTICS.out
+rm zgoubi.res
+rm zpop.lips
+rm zpop.log

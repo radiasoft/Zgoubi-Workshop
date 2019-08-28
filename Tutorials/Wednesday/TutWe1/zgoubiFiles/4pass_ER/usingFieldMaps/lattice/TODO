@@ -1,0 +1,22 @@
+
+42MeV, Br = 0.14008655052543029
+
+----------
+Check MS1DIP01 - OK -
+
+- bmad has  L_arc=2.1111969E-01 , B= -3.7602210E-01  which yields A=BL/Br = 0.566690156103
+it also has e2=5.6669016E-01, consistant with normal entrance and wedge exit;
+the latter means L_dipole = rho * sin A = Br/B sin A = 0.372548715954* sin 0.566690156103 = 20cm
+
+- Zgoubi has L=20.000000  and  B=3.76022100E+00 consistent with these L dipole and B, 
+it also has normal entrance and wedge exit
+
+- thus, ds:
+bmad :   ds = 2.3149152E+01- 2.2938032E+01 = 0.21112 m consistent with the L-arc above
+zgoubi (see ) : ds = 2.3149136EE+01- 2.2938016E+01 = 0.21112
+
+--------------
+
+
+
+
