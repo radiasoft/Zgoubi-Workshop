@@ -1,4 +1,3 @@
-First tutorial.
+Excercise 1a:  Understand .res file and confirm calculations
 
-We create a single dipole zgoubi file and turn on synchrotron radiation.
-We study energy loss and photon statistics for an electron passing through this dipole.
+Exercise 1b:  Examine SRLOSS file and plot results in different columns
