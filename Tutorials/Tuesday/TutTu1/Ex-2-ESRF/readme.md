@@ -2,10 +2,6 @@
 
 ## ESRF
 
-We consider the ESRF lattice (rather old version), with dipoles, quadrupoles, sextupoles and RF cavity.
-compute and examine the Twiss parameters.
-We create a random initial bunch of electrons and track these through the machine several damping times.
+Exercise 2a:  Calculate the linear parameters in the ESRF lattice and also how to plot twiss functions around the ring
 
-Calculate damping time and eqilibrium emittance and compare that to the theoretical expectations.
-
-The main Zgoubi file is `ESRF_18GeV.dat`.  This has an `include` statement with the file `ESRF_18GeV_Twiss.inc`.
+Exercise 2b:  Understand how to tinclude twiss zogubi file into another zgoubi file to use for tracking. Examine CAVITE settings and track several sets of initial conditions and observe evolution to equilibrium.
